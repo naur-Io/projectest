@@ -85,6 +85,13 @@
             animation: subtlePulse 4s ease-in-out infinite;
         }
 
+        /* Word break helper */
+        .break-words-safe {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -105,57 +112,57 @@
 
     <!-- URGENCY STICKY HEADER COM FOCO ANTI-PT -->
     <aside aria-label="Aviso de urgência" class="bg-gradient-to-r from-red-950 via-emerald-950 to-patriotDark text-white text-center py-2.5 px-4 text-xs sm:text-sm font-semibold tracking-wide border-b border-red-500/40 sticky top-0 z-50 shadow-lg backdrop-blur-md bg-opacity-95 flex items-center justify-center gap-3">
-        <span class="inline-flex items-center gap-1.5 bg-red-600 text-white font-black text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse">
+        <span class="inline-flex items-center gap-1.5 bg-red-600 text-white font-black text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse shrink-0">
             🚨 ALERTA NACIONAL
         </span>
-        <span>Enquanto o <strong>PT volta a quebrar o país com gastança e impostos</strong>, blinde sua família com a verdade por apenas <strong>R$ 19,90</strong>!</span>
+        <span class="break-words-safe">Enquanto o <strong>PT volta a quebrar o país com gastança e impostos</strong>, blinde sua família com a verdade por apenas <strong>R$ 19,90</strong>!</span>
     </aside>
 
     <!-- HERO SECTION COM APRESENTAÇÃO 3D DOS 3 EBOOKS -->
-    <header class="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.22),rgba(7,11,20,1))] border-b border-gray-800/80">
+    <header class="relative overflow-hidden pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.22),rgba(7,11,20,1))] border-b border-gray-800/80">
         <!-- Background decorative glows -->
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-patriotGreen/10 blur-[130px] rounded-full pointer-events-none"></div>
         <div class="absolute top-1/3 right-10 w-[300px] h-[250px] bg-red-600/10 blur-[100px] rounded-full pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 
                 <!-- Coluna da Esquerda: Copywriting e Chamada -->
-                <div class="lg:col-span-7 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/20 via-patriotGold/20 to-patriotGreen/20 text-patriotGold text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full mb-6 border border-patriotGold/40 uppercase tracking-widest shadow-sm">
-                        <span>🇧🇷</span>
-                        <span>O Dossiê Que Desmonta as Mentiras do PT</span>
+                <div class="lg:col-span-7 text-center lg:text-left min-w-0">
+                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/20 via-patriotGold/20 to-patriotGreen/20 text-patriotGold text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full mb-6 border border-patriotGold/40 uppercase tracking-widest shadow-sm max-w-full">
+                        <span class="shrink-0">🇧🇷</span>
+                        <span class="truncate">O Dossiê Que Desmonta as Mentiras do PT</span>
                     </div>
 
-                    <h1 class="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[1.12] mb-6">
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[1.15] mb-6 break-words-safe">
                         Veja Como o <span class="text-red-500 underline decoration-red-600 decoration-wavy">PT Quebrou o Brasil</span>, Como Bolsonaro Reconstruiu e o <span class="text-transparent bg-clip-text bg-gradient-to-r from-patriotGreenLight via-patriotGreen to-emerald-400">Futuro com Flávio Bolsonaro</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        O PT saqueou estatais, mandou bilhões do BNDES para ditaduras aliadas e doutrinou escolas. Adquira agora o <strong>Livro para Colorir: Um Brasil Patriota</strong> por apenas <span class="text-patriotGold font-bold text-xl">R$ 19,90</span> e leve no checkout os manuais com os dados que provam a roubalheira petista e a estratégia da direita para 2026!
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 break-words-safe">
+                        O PT saqueou estatais, mandou bilhões do BNDES para ditaduras aliadas e doutrinou escolas. Adquira agora o <strong>Livro para Colorir: Um Brasil Patriota</strong> por apenas <span class="text-patriotGold font-bold text-lg sm:text-xl">R$ 19,90</span> e leve no checkout os manuais com os dados que provam a roubalheira petista e a estratégia da direita para 2026!
                     </p>
 
                     <!-- Benefícios Rápidos com Ícones e Alto Impacto -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 text-left">
-                        <div class="bg-patriotCard/90 border border-patriotGold/30 p-3.5 rounded-xl flex items-center gap-2.5 shadow-md">
-                            <span class="text-patriotGold text-2xl">🛡️</span>
-                            <span class="text-xs font-bold text-gray-200"><strong>Um Brasil Patriota:</strong> Proteja as crianças da doutrinação petista</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 text-left">
+                        <div class="bg-patriotCard/90 border border-patriotGold/30 p-3 sm:p-3.5 rounded-xl flex items-center gap-2.5 shadow-md min-w-0">
+                            <span class="text-patriotGold text-xl sm:text-2xl shrink-0">🛡️</span>
+                            <span class="text-xs font-bold text-gray-200 break-words-safe"><strong>Um Brasil Patriota:</strong> Proteja as crianças da doutrinação petista</span>
                         </div>
-                        <div class="bg-patriotCard/90 border border-emerald-500/30 p-3.5 rounded-xl flex items-center gap-2.5 shadow-md">
-                            <span class="text-patriotGreen text-2xl">💥</span>
-                            <span class="text-xs font-bold text-gray-200"><strong>Feitos de Bolsonaro:</strong> Como Bolsonaro tirou o país do rombo do PT</span>
+                        <div class="bg-patriotCard/90 border border-emerald-500/30 p-3 sm:p-3.5 rounded-xl flex items-center gap-2.5 shadow-md min-w-0">
+                            <span class="text-patriotGreen text-xl sm:text-2xl shrink-0">💥</span>
+                            <span class="text-xs font-bold text-gray-200 break-words-safe"><strong>Feitos de Bolsonaro:</strong> Como Bolsonaro tirou o país do rombo</span>
                         </div>
-                        <div class="bg-patriotCard/90 border border-blue-500/30 p-3.5 rounded-xl flex items-center gap-2.5 shadow-md">
-                            <span class="text-blue-400 text-2xl">🏛️</span>
-                            <span class="text-xs font-bold text-gray-200"><strong>Flávio Bolsonaro:</strong> O plano para barrar o PT e vencer em 2026</span>
+                        <div class="bg-patriotCard/90 border border-blue-500/30 p-3 sm:p-3.5 rounded-xl flex items-center gap-2.5 shadow-md min-w-0">
+                            <span class="text-blue-400 text-xl sm:text-2xl shrink-0">🏛️</span>
+                            <span class="text-xs font-bold text-gray-200 break-words-safe"><strong>Flávio Bolsonaro:</strong> O plano para barrar o PT em 2026</span>
                         </div>
                     </div>
 
                     <!-- Call To Action Principal da Hero -->
                     <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                        <a href="#checkout-section" class="w-full sm:w-auto bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-lg px-8 py-4 rounded-xl shadow-2xl shadow-patriotGold/40 transition-all transform hover:-translate-y-1 hover:shadow-patriotGold/60 text-center flex items-center justify-center gap-3 group">
+                        <a href="#checkout-section" class="w-full sm:w-auto bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-base sm:text-lg px-7 py-4 rounded-xl shadow-2xl shadow-patriotGold/40 transition-all transform hover:-translate-y-1 hover:shadow-patriotGold/60 text-center flex items-center justify-center gap-2.5 group">
                             <span>QUERO MEU ARSENAL ANTI-PT AGORA</span>
-                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
                         </a>
@@ -165,26 +172,99 @@
                         </a>
                     </div>
 
-                    <div class="flex items-center gap-4 mt-6 justify-center lg:justify-start text-xs text-gray-400">
-                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen font-bold">✓</span> Download Imediato em PDF</span>
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-6 justify-center lg:justify-start text-xs text-gray-400">
+                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen font-bold">✓</span> Download Imediato</span>
                         <span class="flex items-center gap-1.5"><span class="text-patriotGreen font-bold">✓</span> Imprima Quantas Vezes Quiser</span>
-                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen font-bold">✓</span> Garantia de Satisfação Total</span>
+                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen font-bold">✓</span> 7 Dias de Garantia</span>
                     </div>
+
+                    <!-- ============================================== -->
+                    <!-- BLOCO DE COMPRA RÁPIDA (EXCLUSIVO PARA CELULAR) -->
+                    <!-- ============================================== -->
+                    <div class="block lg:hidden mt-8 p-4 sm:p-5 bg-gradient-to-b from-[#131f37] via-patriotCard to-[#090e1a] border-2 border-patriotGold rounded-2xl shadow-2xl relative text-left">
+                        <div class="flex items-center justify-between mb-3 border-b border-gray-700/80 pb-2.5">
+                            <span class="inline-flex items-center gap-1.5 bg-patriotGold text-black font-black text-[11px] px-3 py-0.5 rounded-full uppercase tracking-wider shadow">
+                                📱 COMPRA RÁPIDA NO CELULAR
+                            </span>
+                            <span class="text-[11px] font-bold text-patriotGreenLight flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-patriotGreen animate-ping"></span>
+                                PIX Imediato
+                            </span>
+                        </div>
+
+                        <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-1 break-words-safe">
+                            Adquira o <span class="text-patriotGold">Livro para Colorir: Um Brasil Patriota</span>
+                        </h3>
+                        <p class="text-xs text-gray-300 mb-4 break-words-safe">
+                            30 ilustrações históricas em alta resolução para imprimir em casa e proteger sua família da doutrinação esquerdista.
+                        </p>
+
+                        <!-- Preço Principal em Destaque Mobile -->
+                        <div class="bg-patriotDark/95 p-3 rounded-xl border border-patriotGold/40 flex items-center justify-between mb-4 shadow-inner">
+                            <div>
+                                <span class="text-[11px] text-gray-400 line-through block">De R$ 67,00</span>
+                                <span class="text-xs font-bold text-patriotGreen">Preço Promocional Hoje</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-black text-patriotGold">R$ 19,90</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Lista dos 3 Livros com Preços -->
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center justify-between bg-patriotDark/70 p-2.5 rounded-lg border border-patriotGold/30 text-xs">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <span class="text-sm shrink-0">🎨</span>
+                                    <span class="font-bold text-white break-words-safe">Livro: Um Brasil Patriota</span>
+                                </div>
+                                <span class="text-patriotGold font-black shrink-0 ml-2">R$ 19,90</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-patriotDark/70 p-2.5 rounded-lg border border-emerald-500/30 text-xs">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <span class="text-sm shrink-0">💥</span>
+                                    <span class="font-bold text-gray-200 break-words-safe">+ Feitos de Bolsonaro</span>
+                                </div>
+                                <span class="text-patriotGreen font-black shrink-0 ml-2">+ R$ 12,90</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-patriotDark/70 p-2.5 rounded-lg border border-blue-500/30 text-xs">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <span class="text-sm shrink-0">🏛️</span>
+                                    <span class="font-bold text-gray-200 break-words-safe">+ Flávio Bolsonaro 2026</span>
+                                </div>
+                                <span class="text-blue-400 font-black shrink-0 ml-2">+ R$ 14,90</span>
+                            </div>
+                        </div>
+
+                        <!-- Botão Direto para o Checkout -->
+                        <a href="#checkout-section" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-sm sm:text-base py-3.5 px-4 rounded-xl shadow-xl shadow-patriotGold/30 text-center block uppercase tracking-wide">
+                            GARANTIR POR APENAS R$ 19,90
+                        </a>
+
+                        <div class="flex items-center justify-center gap-3 mt-3 text-[10px] sm:text-[11px] text-gray-400">
+                            <span>🔒 Pagamento Blindado</span>
+                            <span>•</span>
+                            <span>⚡ Envio Imediato</span>
+                            <span>•</span>
+                            <span>🛡️ 7 Dias Garantia</span>
+                        </div>
+                    </div>
+                    <!-- FIM BLOCO MOBILE -->
+
                 </div>
 
                 <!-- Coluna da Direita: Vitrine 3D Interativa com os 3 Assets -->
-                <div class="lg:col-span-5 relative perspective-1000 flex flex-col items-center">
+                <div class="lg:col-span-5 relative perspective-1000 flex flex-col items-center w-full min-w-0">
                     
                     <div class="text-xs text-center text-gray-400 mb-3 flex items-center gap-2 bg-patriotCard/90 px-3 py-1.5 rounded-full border border-gray-700/60 shadow">
                         <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                        <span class="font-bold text-gray-300">Passe o mouse sobre os eBooks para inspecionar em 3D</span>
+                        <span class="font-bold text-gray-300">Passe o mouse ou toque para ampliar</span>
                     </div>
 
                     <!-- Showcase dos 3 eBooks agrupados com profundidade -->
-                    <div class="relative w-full max-w-[420px] sm:max-w-[460px] h-[480px] sm:h-[520px] flex items-center justify-center">
+                    <div class="relative w-full max-w-[360px] sm:max-w-[440px] h-[380px] sm:h-[460px] flex items-center justify-center">
 
                         <!-- EBOOK 1 (Esquerda / Fundo): Os Maiores Feitos de Jair Bolsonaro -->
-                        <div class="absolute left-0 bottom-8 w-[54%] z-10 group cursor-pointer book-container transition-all duration-500 hover:z-40" onclick="openModal('olegado')">
+                        <div class="absolute left-0 bottom-4 w-[52%] z-10 group cursor-pointer book-container transition-all duration-500 hover:z-40" onclick="openModal('olegado')">
                             <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/80 border-2 border-emerald-500/40 bg-white group-hover:border-patriotGreen group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.45)]">
                                 <div class="book-spine-effect"></div>
                                 <div class="shimmer-layer"></div>
@@ -194,13 +274,10 @@
                                     + R$ 12,90
                                 </div>
                             </div>
-                            <span class="block text-center text-[11px] font-black text-gray-200 mt-2 bg-patriotCard/95 py-1 px-2 rounded border border-emerald-500/50 shadow">
-                                💥 Feitos de Jair Bolsonaro
-                            </span>
                         </div>
 
                         <!-- EBOOK 2 (Direita / Fundo): O Futuro da Direita: Flávio Bolsonaro -->
-                        <div class="absolute right-0 bottom-8 w-[54%] z-20 group cursor-pointer book-container transition-all duration-500 hover:z-40" onclick="openModal('ofuturo')">
+                        <div class="absolute right-0 bottom-4 w-[52%] z-20 group cursor-pointer book-container transition-all duration-500 hover:z-40" onclick="openModal('ofuturo')">
                             <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/80 border-2 border-blue-500/40 bg-white group-hover:border-blue-400 group-hover:shadow-[0_20px_40px_rgba(59,130,246,0.45)]">
                                 <div class="book-spine-effect"></div>
                                 <div class="shimmer-layer"></div>
@@ -210,13 +287,10 @@
                                     + R$ 14,90
                                 </div>
                             </div>
-                            <span class="block text-center text-[11px] font-black text-gray-200 mt-2 bg-patriotCard/95 py-1 px-2 rounded border border-blue-500/50 shadow">
-                                🏛️ Flávio Bolsonaro & 2026
-                            </span>
                         </div>
 
                         <!-- EBOOK PRINCIPAL (Centro / Frente com Destaque Máximo): Um Brasil Patriota -->
-                        <div class="absolute bottom-2 w-[65%] z-30 group cursor-pointer book-container transition-all duration-500 hover:z-50" onclick="openModal('livrocolorir')">
+                        <div class="absolute bottom-0 w-[64%] z-30 group cursor-pointer book-container transition-all duration-500 hover:z-50" onclick="openModal('livrocolorir')">
                             <!-- Glowing ring highlight -->
                             <div class="absolute -inset-1.5 bg-gradient-to-r from-patriotGold via-amber-300 to-patriotGreen rounded-2xl blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
                             
@@ -234,16 +308,28 @@
                                     R$ 19,90
                                 </div>
                             </div>
-                            
-                            <span class="block text-center text-xs font-black text-patriotGold mt-3 bg-patriotCard/95 py-1.5 px-3 rounded-lg border border-patriotGold/40 shadow-lg">
-                                🎨 Livro: Um Brasil Patriota
-                            </span>
                         </div>
 
                     </div>
 
-                    <div class="mt-4 text-center">
-                        <span class="text-xs text-gray-400">Clique nas capas para abrir o visualizador de alta resolução</span>
+                    <!-- LEGENDA COMPLETA E RESPONSIVA DOS 3 LIVROS (NUNCA CORTA O TEXTO) -->
+                    <div class="w-full mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 text-center max-w-[440px]">
+                        <div onclick="openModal('livrocolorir')" class="cursor-pointer bg-patriotCard/90 hover:bg-patriotCard border border-patriotGold/40 hover:border-patriotGold p-2 sm:p-2.5 rounded-xl transition shadow flex flex-col justify-center">
+                            <span class="text-[10px] font-black text-patriotGold uppercase block mb-0.5">⭐ Principal • R$ 19,90</span>
+                            <h4 class="text-xs font-bold text-white break-words-safe leading-snug">Livro: Um Brasil Patriota</h4>
+                        </div>
+                        <div onclick="openModal('olegado')" class="cursor-pointer bg-patriotCard/90 hover:bg-patriotCard border border-emerald-500/40 hover:border-patriotGreen p-2 sm:p-2.5 rounded-xl transition shadow flex flex-col justify-center">
+                            <span class="text-[10px] font-black text-patriotGreen uppercase block mb-0.5">💥 Order Bump • +R$ 12,90</span>
+                            <h4 class="text-xs font-bold text-white break-words-safe leading-snug">Os Maiores Feitos de Jair Bolsonaro</h4>
+                        </div>
+                        <div onclick="openModal('ofuturo')" class="cursor-pointer bg-patriotCard/90 hover:bg-patriotCard border border-blue-500/40 hover:border-blue-400 p-2 sm:p-2.5 rounded-xl transition shadow flex flex-col justify-center">
+                            <span class="text-[10px] font-black text-blue-300 uppercase block mb-0.5">🏛️ Order Bump • +R$ 14,90</span>
+                            <h4 class="text-xs font-bold text-white break-words-safe leading-snug">O Futuro da Direita: Flávio Bolsonaro</h4>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 text-center">
+                        <span class="text-[11px] text-gray-400">Toque em qualquer capa para ampliar os detalhes</span>
                     </div>
 
                 </div>
@@ -254,82 +340,82 @@
 
     <!-- PROVA SOCIAL / STATS BAR -->
     <section class="border-b border-gray-800 bg-patriotCard/60 py-6 px-4">
-        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="border-r border-gray-800/80 last:border-0">
-                <p class="text-2xl sm:text-3xl font-black text-patriotGreen">+18.400</p>
-                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-1">Patriotas Armados com Fatos</p>
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+            <div class="border-r border-gray-800/80 last:border-0 p-2">
+                <p class="text-xl sm:text-3xl font-black text-patriotGreen">+18.400</p>
+                <p class="text-[11px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider mt-1 break-words-safe">Patriotas Armados com Fatos</p>
             </div>
-            <div class="border-r border-gray-800/80 last:border-0">
-                <p class="text-2xl sm:text-3xl font-black text-patriotGold">4.9 / 5.0</p>
-                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-1">Aprovação Esmagadora</p>
+            <div class="border-r border-gray-800/80 last:border-0 p-2">
+                <p class="text-xl sm:text-3xl font-black text-patriotGold">4.9 / 5.0</p>
+                <p class="text-[11px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider mt-1 break-words-safe">Aprovação Esmagadora</p>
             </div>
-            <div class="border-r border-gray-800/80 last:border-0">
-                <p class="text-2xl sm:text-3xl font-black text-white">Livre do PT</p>
-                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-1">Sem Doutrinação Ideológica</p>
+            <div class="border-r border-gray-800/80 last:border-0 p-2">
+                <p class="text-xl sm:text-3xl font-black text-white">Livre do PT</p>
+                <p class="text-[11px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider mt-1 break-words-safe">Sem Doutrinação</p>
             </div>
-            <div>
-                <p class="text-2xl sm:text-3xl font-black text-patriotGreenLight">100% Seguro</p>
-                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mt-1">Garantia Blindada de 7 Dias</p>
+            <div class="p-2">
+                <p class="text-xl sm:text-3xl font-black text-patriotGreenLight">100% Seguro</p>
+                <p class="text-[11px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider mt-1 break-words-safe">Garantia 7 Dias</p>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO EXPLOSIVA DE CONTRASTE: COMO O PT QUEBROU O PAÍS VS. O RESGATE SOB BOLSONARO -->
-    <section id="como-pt-quebrou" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-b border-gray-800/80">
-        <div class="text-center mb-14 max-w-3xl mx-auto">
+    <section id="como-pt-quebrou" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-b border-gray-800/80">
+        <div class="text-center mb-12 max-w-3xl mx-auto">
             <span class="bg-red-600/20 text-red-400 border border-red-500/40 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider animate-pulse">
                 ⚠️ O Confronto Inegável dos Números
             </span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-4 text-white">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black mt-4 mb-4 text-white break-words-safe">
                 Como o <span class="text-red-500">PT Quebrou o Brasil</span> vs. A Recuperação de Bolsonaro
             </h2>
-            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            <p class="text-gray-300 text-xs sm:text-sm sm:text-base leading-relaxed break-words-safe">
                 A grande mídia tenta esconder, mas a história está documentada em balanços oficiais. Veja lado a lado o rastro de destruição deixado pelo PT e a recuperação econômica conquistada pelo governo conservador:
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             
             <!-- Coluna PT: O Desastre e o Rombo -->
-            <div class="bg-gradient-to-b from-red-950/50 via-patriotCard to-patriotDark p-6 sm:p-8 rounded-3xl border-2 border-red-600/50 shadow-2xl relative flex flex-col justify-between">
+            <div class="bg-gradient-to-b from-red-950/50 via-patriotCard to-patriotDark p-5 sm:p-8 rounded-3xl border-2 border-red-600/50 shadow-2xl relative flex flex-col justify-between min-w-0">
                 <div>
-                    <div class="inline-flex items-center gap-2 bg-red-600 text-white font-black text-xs uppercase px-3.5 py-1 rounded-full mb-6 shadow">
+                    <div class="inline-flex items-center gap-2 bg-red-600 text-white font-black text-xs uppercase px-3 py-1 rounded-full mb-6 shadow max-w-full truncate">
                         <span>🔴 A ERA PETISTA: O ROUBO E A FALÊNCIA</span>
                     </div>
-                    <h3 class="text-xl sm:text-2xl font-black text-white mb-6">Como o PT Deixou o Brasil:</h3>
+                    <h3 class="text-xl sm:text-2xl font-black text-white mb-6 break-words-safe">Como o PT Deixou o Brasil:</h3>
                     
-                    <ul class="space-y-4 text-xs sm:text-sm text-gray-300">
-                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40">
-                            <span class="text-red-500 font-black text-lg shrink-0">✕</span>
-                            <div>
+                    <ul class="space-y-3.5 text-xs sm:text-sm text-gray-300">
+                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40 min-w-0">
+                            <span class="text-red-500 font-black text-base shrink-0 mt-0.5">✕</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Petrolão e Rombo nas Estatais:</strong>
                                 A Petrobras virou a empresa mais endividada do mundo, com desvios bilionários apurados pela Justiça e fundos de pensão arruinados.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40">
-                            <span class="text-red-500 font-black text-lg shrink-0">✕</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40 min-w-0">
+                            <span class="text-red-500 font-black text-base shrink-0 mt-0.5">✕</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">BNDES Financiando Ditaduras Comunistas:</strong>
                                 Bilhões de reais dos impostos do povo brasileiro foram enviados para construir portos em Cuba, metrô em Caracas e barragens na África enquanto o Nordeste passava sede.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40">
-                            <span class="text-red-500 font-black text-lg shrink-0">✕</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40 min-w-0">
+                            <span class="text-red-500 font-black text-base shrink-0 mt-0.5">✕</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">A Pior Recessão da História (2014-2016):</strong>
                                 O desastre econômico da gestão Dilma destruiu o PIB (-7%), disparou a inflação a dois dígitos e jogou mais de 14 milhões de trabalhadores no desemprego.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40">
-                            <span class="text-red-500 font-black text-lg shrink-0">✕</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40 min-w-0">
+                            <span class="text-red-500 font-black text-base shrink-0 mt-0.5">✕</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Recorde Macabro de Violência:</strong>
                                 O Brasil atingiu mais de 65.000 assassinatos ao ano sob a cartilha esquerdista de vitimização do criminoso e desarmamento do cidadão de bem.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40">
-                            <span class="text-red-500 font-black text-lg shrink-0">✕</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/40 min-w-0">
+                            <span class="text-red-500 font-black text-base shrink-0 mt-0.5">✕</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Doutrinação Ideológica nas Escolas:</strong>
                                 Aparelhamento do MEC com cartilhas de gênero e marxismo cultural, atacando a inocência das crianças e a fé das famílias brasileiras.
                             </div>
@@ -338,50 +424,50 @@
                 </div>
 
                 <div class="mt-6 pt-4 border-t border-red-900/50 text-center">
-                    <span class="text-xs text-red-400 font-bold uppercase tracking-wider">⚠️ E agora o PT quer repetir a mesma receita de impostos altos!</span>
+                    <span class="text-xs text-red-400 font-bold uppercase tracking-wider break-words-safe">⚠️ E agora o PT quer repetir a mesma receita de impostos altos!</span>
                 </div>
             </div>
 
             <!-- Coluna Bolsonaro: A Reconstrução -->
-            <div class="bg-gradient-to-b from-emerald-950/50 via-patriotCard to-patriotDark p-6 sm:p-8 rounded-3xl border-2 border-patriotGreen/60 shadow-2xl relative flex flex-col justify-between">
+            <div class="bg-gradient-to-b from-emerald-950/50 via-patriotCard to-patriotDark p-5 sm:p-8 rounded-3xl border-2 border-patriotGreen/60 shadow-2xl relative flex flex-col justify-between min-w-0">
                 <div>
-                    <div class="inline-flex items-center gap-2 bg-patriotGreen text-black font-black text-xs uppercase px-3.5 py-1 rounded-full mb-6 shadow">
+                    <div class="inline-flex items-center gap-2 bg-patriotGreen text-black font-black text-xs uppercase px-3 py-1 rounded-full mb-6 shadow max-w-full truncate">
                         <span>🟢 O GOVERNO BOLSONARO: FATOS E RESULTADOS</span>
                     </div>
-                    <h3 class="text-xl sm:text-2xl font-black text-white mb-6">A Reconstrução Patriota:</h3>
+                    <h3 class="text-xl sm:text-2xl font-black text-white mb-6 break-words-safe">A Reconstrução Patriota:</h3>
                     
                     <ul class="space-y-4 text-xs sm:text-sm text-gray-300">
-                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40">
-                            <span class="text-patriotGreen font-black text-lg shrink-0">✓</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">✓</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Estatais com Lucro Recorde (+R$ 180 Bilhões):</strong>
                                 Sem propina, sem loteamento partidário e com gestores técnicos, estatais quebradas voltaram a lucrar e encher os cofres da União.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40">
-                            <span class="text-patriotGreen font-black text-lg shrink-0">✓</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">✓</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Água no Sertão Nordestino Entregue:</strong>
                                 Conclusão das obras da Transposição do Rio São Francisco que os governos do PT prometeram por quase 20 anos e nunca terminaram.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40">
-                            <span class="text-patriotGreen font-black text-lg shrink-0">✓</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">✓</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">PIX sem Taxa e Superávit Primário:</strong>
                                 Revolução do sistema financeiro sem cobrar um único centavo do povo, Lei da Liberdade Econômica e inflação controlada mesmo durante uma pandemia.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40">
-                            <span class="text-patriotGreen font-black text-lg shrink-0">✓</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">✓</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Queda Histórica nos Homicídios:</strong>
                                 Redução expressiva no número de assassinatos, recordes históricos na apreensão de drogas pelo governo federal e apoio irrestrito às forças de segurança.
                             </div>
                         </li>
-                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40">
-                            <span class="text-patriotGreen font-black text-lg shrink-0">✓</span>
-                            <div>
+                        <li class="flex items-start gap-3 bg-emerald-950/30 p-3 rounded-xl border border-emerald-900/40 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">✓</span>
+                            <div class="break-words-safe min-w-0">
                                 <strong class="text-white block mb-0.5">Resgate dos Valores Cívicos e Cristãos:</strong>
                                 O lema "Brasil acima de tudo, Deus acima de todos" devolveu o orgulho de carregar a bandeira verde e amarela e blindou as famílias.
                             </div>
@@ -390,7 +476,7 @@
                 </div>
 
                 <div class="mt-6 pt-4 border-t border-emerald-900/50 text-center">
-                    <span class="text-xs text-patriotGreen font-bold uppercase tracking-wider">✅ Dados oficiais extraídos do Diário Oficial e ministérios!</span>
+                    <span class="text-xs text-patriotGreen font-bold uppercase tracking-wider break-words-safe">✅ Dados oficiais extraídos do Diário Oficial e ministérios!</span>
                 </div>
             </div>
 
@@ -398,46 +484,46 @@
 
         <!-- Banner com chamada polemica e link pro checkout -->
         <div class="mt-10 bg-gradient-to-r from-red-950/70 via-patriotCard to-emerald-950/70 p-6 sm:p-8 rounded-3xl border-2 border-patriotGold/50 text-center shadow-2xl">
-            <h4 class="text-lg sm:text-2xl font-black text-white mb-2">
+            <h4 class="text-base sm:text-2xl font-black text-white mb-2 break-words-safe">
                 "Quem não conhece como o PT destruiu o país é facilmente enganado pelas narrativas da TV."
             </h4>
-            <p class="text-xs sm:text-sm text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-xs sm:text-sm text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed break-words-safe">
                 Não fique desarmado nos debates! Garanta o <strong>Livro de Colorir</strong> para blindar seus filhos da doutrinação petista e adicione os manuais com os dados que provam a roubalheira do PT e a recuperação sob Bolsonaro.
             </p>
-            <a href="#checkout-section" class="inline-block bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-sm sm:text-base px-8 py-4 rounded-xl shadow-xl shadow-patriotGold/30 transition transform hover:-translate-y-1 uppercase tracking-wide">
+            <a href="#checkout-section" class="inline-block bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-sm sm:text-base px-7 py-3.5 sm:py-4 rounded-xl shadow-xl shadow-patriotGold/30 transition transform hover:-translate-y-1 uppercase tracking-wide">
                 QUERO O ARSENAL PATRIOTA POR APENAS R$ 19,90
             </a>
         </div>
     </section>
 
-    <!-- SEÇÃO PRINCIPAL: OS 3 EBOOKS EM DETALHES COM ALTO CTA E COPYWRITING PERSUASIVO -->
-    <main id="produtos-detalhes" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-16 max-w-3xl mx-auto">
+    <!-- SEÇÃO PRINCIPAL: OS 3 EBOOKS EM DETALHES (GRID RESPONSIVA QUE NUNCA CORTA TEXTO) -->
+    <main id="produtos-detalhes" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-14 max-w-3xl mx-auto">
             <span class="bg-red-950 text-red-400 border border-red-500/40 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider animate-pulse">
                 💥 Conhecimento Que Incomoda a Esquerda
             </span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-4 tracking-tight">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black mt-4 mb-4 tracking-tight break-words-safe">
                 A Trilogia Que Desmonta as <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-patriotGold to-patriotGreen">Falsas Narrativas do PT</span>
             </h2>
-            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            <p class="text-gray-300 text-xs sm:text-sm sm:text-base leading-relaxed break-words-safe">
                 Descubra por que este pacote se tornou o pesadelo dos militantes petistas: blinde seus filhos contra a doutrinação escolar, humilhe mentiras da grande mídia com números oficiais e antecipe os próximos passos de Flávio Bolsonaro rumo a 2026.
             </p>
         </div>
 
-        <!-- GRID COM OS 3 EBOOKS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+        <!-- GRID COM OS 3 EBOOKS (RESPONSIVO COM ESPAÇO AMPLO PARA OS TEXTOS) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             
             <!-- CARD 1: LIVRO DE COLORIR: UM BRASIL PATRIOTICA (PRODUTO PRINCIPAL - R$ 19,90) -->
-            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-6 sm:p-8 border-2 border-patriotGold shadow-2xl shadow-patriotGold/10 flex flex-col justify-between relative group transition-all duration-300 hover:border-patriotGold hover:shadow-2xl hover:shadow-patriotGold/30">
+            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-7 border-2 border-patriotGold shadow-2xl shadow-patriotGold/10 flex flex-col justify-between relative group transition-all duration-300 hover:border-patriotGold hover:shadow-2xl hover:shadow-patriotGold/30 min-w-0">
                 
                 <!-- Selo Destaque -->
-                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-patriotGold to-amber-500 text-black font-black text-xs uppercase px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5">
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-patriotGold to-amber-500 text-black font-black text-[11px] sm:text-xs uppercase px-3 sm:px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5 max-w-[90%] truncate">
                     <span>PRODUTO PRINCIPAL</span>
                 </div>
 
-                <div>
+                <div class="min-w-0">
                     <!-- Capa do Livro com Efeito 3D e Hover -->
-                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container" onclick="openModal('livrocolorir')">
+                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container mt-2" onclick="openModal('livrocolorir')">
                         <div class="book-spine-effect"></div>
                         <div class="shimmer-layer"></div>
                         <img src="assets/livrocolorir.png" alt="Livro para Colorir: Um Brasil Patriota" class="w-full h-auto object-cover rounded-xl shadow-lg transform group-hover/cover:scale-105 transition-transform duration-500">
@@ -448,65 +534,65 @@
                         </div>
                     </div>
 
-                    <!-- Título e Preço -->
-                    <div class="mb-3">
+                    <!-- Título e Preço Totalmente Responsivos -->
+                    <div class="mb-3 min-w-0">
                         <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Proteção e Formação Infantil</span>
-                        <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-black text-white leading-snug break-words-safe">
                             Livro para Colorir: <span class="text-patriotGold">Um Brasil Patriota</span>
                         </h3>
                     </div>
 
-                    <div class="mb-5 bg-patriotDark/80 p-3.5 rounded-xl border border-patriotGold/30 flex items-baseline justify-between shadow-inner">
+                    <div class="mb-5 bg-patriotDark/80 p-3 sm:p-3.5 rounded-xl border border-patriotGold/30 flex items-baseline justify-between shadow-inner">
                         <div>
                             <span class="text-xs text-gray-400 line-through block">De R$ 67,00</span>
-                            <span class="text-xs font-extrabold text-patriotGreen">Preço Promocional Exclusivo</span>
+                            <span class="text-xs font-extrabold text-patriotGreen">Preço Promocional</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-2xl sm:text-3xl font-black text-patriotGold">R$ 19,90</span>
+                            <span class="text-xl sm:text-2xl font-black text-patriotGold">R$ 19,90</span>
                         </div>
                     </div>
 
-                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium break-words-safe">
                         <strong>Não deixe o PT e a esquerda educarem seus filhos!</strong> Enquanto ativistas tentam empurrar ideologias destrutivas nas salas de aula, este livro resgata no coração das crianças o orgulho pelo Brasil, as cores da nossa bandeira, a fé em Deus e o amor à família através de 30 ilustrações históricas.
                     </p>
 
                     <!-- Lista de Recursos com Alto CTA -->
                     <ul class="space-y-3 text-xs text-gray-300 mb-8">
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGold font-black text-base shrink-0">🛡️</span>
-                            <span><strong>Vacina contra o marxismo cultural:</strong> Desenhos puros e patriotas que ensinam a respeitar a pátria e a família, sem ideologia de gênero.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGold font-black text-base shrink-0 mt-0.5">🛡️</span>
+                            <span class="break-words-safe"><strong>Vacina contra o marxismo cultural:</strong> Desenhos puros e patriotas que ensinam a respeitar a pátria e a família, sem ideologia de gênero.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGold font-black text-base shrink-0">🖨️</span>
-                            <span><strong>Impressão ilimitada em folha A4:</strong> Imprima para seus filhos, sobrinhos, netos ou use direto na tela do tablet quantas vezes quiser.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGold font-black text-base shrink-0 mt-0.5">🖨️</span>
+                            <span class="break-words-safe"><strong>Impressão ilimitada em folha A4:</strong> Imprima para seus filhos, sobrinhos, netos ou use direto na tela do tablet quantas vezes quiser.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGold font-black text-base shrink-0">📖</span>
-                            <span><strong>30 marcos históricos reais:</strong> Cada página traz um breve resumo factual para ensinar civismo de verdade.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGold font-black text-base shrink-0 mt-0.5">📖</span>
+                            <span class="break-words-safe"><strong>30 marcos históricos reais:</strong> Cada página traz um breve resumo factual para ensinar civismo de verdade.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGold font-black text-base shrink-0">🔥</span>
-                            <span><strong>Economize mais de 70% hoje:</strong> Menos que o valor de um lanche para blindar a mente dos seus filhos.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGold font-black text-base shrink-0 mt-0.5">🔥</span>
+                            <span class="break-words-safe"><strong>Economize mais de 70% hoje:</strong> Menos que o valor de um lanche para blindar a mente dos seus filhos.</span>
                         </li>
                     </ul>
                 </div>
 
-                <a href="#checkout-section" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-sm py-4 px-4 rounded-xl shadow-xl shadow-patriotGold/25 transition-all text-center block uppercase tracking-wide transform hover:-translate-y-1">
+                <a href="#checkout-section" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-xs sm:text-sm py-4 px-4 rounded-xl shadow-xl shadow-patriotGold/25 transition-all text-center block uppercase tracking-wide transform hover:-translate-y-1">
                     GARANTIR O LIVRO INFANTIL AGORA (R$ 19,90)
                 </a>
             </div>
 
             <!-- CARD 2: OS MAIORES FEITOS DE JAIR BOLSONARO (ORDER BUMP 01 - R$ 12,90) -->
-            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/50 shadow-xl flex flex-col justify-between relative group transition-all duration-300 hover:border-patriotGreen hover:shadow-2xl hover:shadow-emerald-500/25">
+            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-7 border-2 border-emerald-500/50 shadow-xl flex flex-col justify-between relative group transition-all duration-300 hover:border-patriotGreen hover:shadow-2xl hover:shadow-emerald-500/25 min-w-0">
                 
                 <!-- Selo Destaque -->
-                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-emerald-900 border border-emerald-400 text-patriotGreenLight font-black text-xs uppercase px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5">
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-emerald-900 border border-emerald-400 text-patriotGreenLight font-black text-[11px] sm:text-xs uppercase px-3 sm:px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5 max-w-[90%] truncate">
                     <span>OS MAIORES FEITOS DE BOLSONARO</span>
                 </div>
 
-                <div>
+                <div class="min-w-0">
                     <!-- Capa do Livro com Efeito 3D e Hover -->
-                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container" onclick="openModal('olegado')">
+                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container mt-2" onclick="openModal('olegado')">
                         <div class="book-spine-effect"></div>
                         <div class="shimmer-layer"></div>
                         <img src="assets/olegadobolsonaro.png" alt="Os Maiores Feitos de Jair Bolsonaro" class="w-full h-auto object-cover rounded-xl shadow-lg transform group-hover/cover:scale-105 transition-transform duration-500">
@@ -517,65 +603,65 @@
                         </div>
                     </div>
 
-                    <!-- Título e Preço -->
-                    <div class="mb-3">
+                    <!-- Título e Preço Totalmente Responsivos -->
+                    <div class="mb-3 min-w-0">
                         <span class="text-[11px] font-black text-patriotGreen uppercase tracking-wider block mb-1">Destruidor de Narrativas</span>
-                        <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-black text-white leading-snug break-words-safe">
                             Os Maiores Feitos de <span class="text-patriotGreen">Jair Bolsonaro</span>
                         </h3>
                     </div>
 
-                    <div class="mb-5 bg-patriotDark/80 p-3.5 rounded-xl border border-emerald-500/30 flex items-baseline justify-between shadow-inner">
+                    <div class="mb-5 bg-patriotDark/80 p-3 sm:p-3.5 rounded-xl border border-emerald-500/30 flex items-baseline justify-between shadow-inner">
                         <div>
                             <span class="text-xs text-gray-400 line-through block">De R$ 37,00</span>
                             <span class="text-xs font-extrabold text-patriotGreenLight">Preço no Checkout</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-2xl sm:text-3xl font-black text-patriotGreen">+ R$ 12,90</span>
+                            <span class="text-xl sm:text-2xl font-black text-patriotGreen">+ R$ 12,90</span>
                         </div>
                     </div>
 
-                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium break-words-safe">
                         <strong>O comparativo que o PT quer proibir você de ler!</strong> Tenha em mãos a arma definitiva com números auditados e leis aprovadas. Mostre como o governo Bolsonaro recuperou o rombo deixado pelo PT e cale qualquer esquerdista em segundos.
                     </p>
 
                     <!-- Lista de Recursos com Alto CTA -->
                     <ul class="space-y-3 text-xs text-gray-300 mb-8">
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGreen font-black text-base shrink-0">📊</span>
-                            <span><strong>15 maiores conquistas explicadas:</strong> Transposição sem corrupção, PIX gratuito, Lei da Liberdade Econômica e estatais lucrando +R$ 180 bilhões.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">📊</span>
+                            <span class="break-words-safe"><strong>15 maiores conquistas explicadas:</strong> Transposição sem corrupção, PIX gratuito, Lei da Liberdade Econômica e estatais lucrando +R$ 180 bilhões.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGreen font-black text-base shrink-0">⚖️</span>
-                            <span><strong>Dossiê comparativo com os escândalos do PT:</strong> Petrolão, Pasadena e envio de dinheiro para ditadores desmascarados com dados.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">⚖️</span>
+                            <span class="break-words-safe"><strong>Dossiê comparativo com os escândalos do PT:</strong> Petrolão, Pasadena e envio de dinheiro para ditadores desmascarados com dados.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGreen font-black text-base shrink-0">📱</span>
-                            <span><strong>Guia de bolso para celular:</strong> Consulte em tempo real no WhatsApp, almoço de família ou debates nas redes sociais.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">📱</span>
+                            <span class="break-words-safe"><strong>Guia de bolso para celular:</strong> Consulte em tempo real no WhatsApp, almoço de família ou debates nas redes sociais.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-patriotGreen font-black text-base shrink-0">💣</span>
-                            <span><strong>Preço promocional de checkout:</strong> Por apenas +R$ 12,90 você adquire a verdade documental completa.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-patriotGreen font-black text-base shrink-0 mt-0.5">💣</span>
+                            <span class="break-words-safe"><strong>Preço promocional de checkout:</strong> Por apenas +R$ 12,90 você adquire a verdade documental completa.</span>
                         </li>
                     </ul>
                 </div>
 
-                <a href="#checkout-section" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-black text-sm py-4 px-4 rounded-xl shadow-xl shadow-emerald-900/30 transition-all text-center block uppercase tracking-wide transform hover:-translate-y-1">
+                <a href="#checkout-section" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm py-4 px-4 rounded-xl shadow-xl shadow-emerald-900/30 transition-all text-center block uppercase tracking-wide transform hover:-translate-y-1">
                     ADICIONAR FEITOS DE BOLSONARO (+R$ 12,90)
                 </a>
             </div>
 
             <!-- CARD 3: O FUTURO DA DIREITA: FLÁVIO BOLSONARO (ORDER BUMP 02 - R$ 14,90) -->
-            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-6 sm:p-8 border-2 border-blue-500/50 shadow-xl flex flex-col justify-between relative group transition-all duration-300 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/25">
+            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-7 border-2 border-blue-500/50 shadow-xl flex flex-col justify-between relative group transition-all duration-300 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/25 min-w-0 md:col-span-2 lg:col-span-1">
                 
                 <!-- Selo Destaque -->
-                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-950 border border-blue-400 text-blue-300 font-black text-xs uppercase px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5">
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-950 border border-blue-400 text-blue-300 font-black text-[11px] sm:text-xs uppercase px-3 sm:px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5 max-w-[90%] truncate">
                     <span>O FUTURO DA DIREITA COM FLÁVIO</span>
                 </div>
 
-                <div>
+                <div class="min-w-0">
                     <!-- Capa do Livro com Efeito 3D e Hover -->
-                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container" onclick="openModal('ofuturo')">
+                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container mt-2" onclick="openModal('ofuturo')">
                         <div class="book-spine-effect"></div>
                         <div class="shimmer-layer"></div>
                         <img src="assets/ofuturodadireita.png" alt="O Futuro da Direita: Flávio Bolsonaro" class="w-full h-auto object-cover rounded-xl shadow-lg transform group-hover/cover:scale-105 transition-transform duration-500">
@@ -586,50 +672,50 @@
                         </div>
                     </div>
 
-                    <!-- Título e Preço -->
-                    <div class="mb-3">
+                    <!-- Título e Preço Totalmente Responsivos -->
+                    <div class="mb-3 min-w-0">
                         <span class="text-[11px] font-black text-blue-400 uppercase tracking-wider block mb-1">Estratégia & Retomada</span>
-                        <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                        <h3 class="text-lg sm:text-xl lg:text-2xl font-black text-white leading-snug break-words-safe">
                             O Futuro da Direita: <span class="text-blue-400">Flávio Bolsonaro</span>
                         </h3>
                     </div>
 
-                    <div class="mb-5 bg-patriotDark/80 p-3.5 rounded-xl border border-blue-500/30 flex items-baseline justify-between shadow-inner">
+                    <div class="mb-5 bg-patriotDark/80 p-3 sm:p-3.5 rounded-xl border border-blue-500/30 flex items-baseline justify-between shadow-inner">
                         <div>
                             <span class="text-xs text-gray-400 line-through block">De R$ 47,00</span>
                             <span class="text-xs font-extrabold text-blue-300">Preço no Checkout</span>
                         </div>
                         <div class="text-right">
-                            <span class="text-2xl sm:text-3xl font-black text-blue-400">+ R$ 14,90</span>
+                            <span class="text-xl sm:text-2xl font-black text-blue-400">+ R$ 14,90</span>
                         </div>
                     </div>
 
-                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium break-words-safe">
                         <strong>O plano de contra-ataque para frear os abusos do PT e do sistema!</strong> Entenda como o Senador Flávio Bolsonaro lidera a articulação no Congresso Nacional para conter as pautas destrutivas do governo petista e pavimentar a vitória conservadora em 2026.
                     </p>
 
                     <!-- Lista de Recursos com Alto CTA -->
                     <ul class="space-y-3 text-xs text-gray-300 mb-8">
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-blue-400 font-black text-base shrink-0">🏛️</span>
-                            <span><strong>A liderança de Flávio Bolsonaro:</strong> A batalha no Senado Federal para barrar a gastança e os abusos de autoridade.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-blue-400 font-black text-base shrink-0 mt-0.5">🏛️</span>
+                            <span class="break-words-safe"><strong>A liderança de Flávio Bolsonaro:</strong> A batalha no Senado Federal para barrar a gastança e os abusos de autoridade.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-blue-400 font-black text-base shrink-0">🎯</span>
-                            <span><strong>O mapa da retomada para 2026:</strong> A estratégia eleitoral e programática para reconquistar a presidência e o Congresso.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-blue-400 font-black text-base shrink-0 mt-0.5">🎯</span>
+                            <span class="break-words-safe"><strong>O mapa da retomada para 2026:</strong> A estratégia eleitoral e programática para reconquistar a presidência e o Congresso.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-blue-400 font-black text-base shrink-0">🛡️</span>
-                            <span><strong>Combate à perseguição política:</strong> Revelações de bastidores sobre como a oposição está se articulando contra a censura.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-blue-400 font-black text-base shrink-0 mt-0.5">🛡️</span>
+                            <span class="break-words-safe"><strong>Combate à perseguição política:</strong> Revelações de bastidores sobre como a oposição está se articulando contra a censura.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <span class="text-blue-400 font-black text-base shrink-0">🔥</span>
-                            <span><strong>Material de inteligência política:</strong> Leitura indispensável para quem apoia a liberdade e a soberania do Brasil.</span>
+                        <li class="flex items-start gap-2.5 min-w-0">
+                            <span class="text-blue-400 font-black text-base shrink-0 mt-0.5">🔥</span>
+                            <span class="break-words-safe"><strong>Material de inteligência política:</strong> Leitura indispensável para quem apoia a liberdade e a soberania do Brasil.</span>
                         </li>
                     </ul>
                 </div>
 
-                <a href="#checkout-section" class="w-full bg-blue-800 hover:bg-blue-700 text-white font-black text-sm py-4 px-4 rounded-xl shadow-xl shadow-blue-900/30 transition-all text-center block uppercase tracking-wide transform hover:-translate-y-1">
+                <a href="#checkout-section" class="w-full bg-blue-800 hover:bg-blue-700 text-white font-black text-xs sm:text-sm py-4 px-4 rounded-xl shadow-xl shadow-blue-900/30 transition-all text-center block uppercase tracking-wide transform hover:-translate-y-1">
                     ADICIONAR FLÁVIO BOLSONARO (+R$ 14,90)
                 </a>
             </div>
@@ -638,17 +724,17 @@
     </main>
 
     <!-- SEÇÃO EXPLICATIVA: COMO FUNCIONAM OS ORDER BUMPS -->
-    <section class="py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <div class="bg-gradient-to-r from-red-950/40 via-patriotCard to-emerald-950/40 rounded-3xl p-8 sm:p-10 border-2 border-patriotGold/40 shadow-2xl">
-            <div class="flex flex-col md:flex-row items-center gap-8">
-                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-patriotGold/10 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl text-patriotGold border border-patriotGold/30 shrink-0 shadow-lg">
+    <section class="py-12 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="bg-gradient-to-r from-red-950/40 via-patriotCard to-emerald-950/40 rounded-3xl p-6 sm:p-10 border-2 border-patriotGold/40 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+                <div class="w-14 h-14 sm:w-20 sm:h-20 bg-patriotGold/10 rounded-2xl flex items-center justify-center text-2xl sm:text-4xl text-patriotGold border border-patriotGold/30 shrink-0 shadow-lg">
                     ⚡
                 </div>
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-black text-white mb-2">
+                <div class="min-w-0">
+                    <h3 class="text-lg sm:text-2xl font-black text-white mb-2 break-words-safe">
                         Como Funciona o <span class="text-patriotGold">Order Bump</span> no Checkout?
                     </h3>
-                    <p class="text-sm text-gray-300 leading-relaxed font-medium">
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-medium break-words-safe">
                         Ao clicar no botão de compra, você será redirecionado para o ambiente seguro da <strong>Kiwify</strong> com o <strong>Livro para Colorir: Um Brasil Patriota (R$ 19,90)</strong>. Lá no checkout, você encontrará as caixinhas dos dois manuais complementares: <strong>Os Maiores Feitos de Jair Bolsonaro (+R$ 12,90)</strong> e <strong>O Futuro da Direita: Flávio Bolsonaro (+R$ 14,90)</strong>. Basta marcar as caixinhas para receber o kit completo por uma fração do preço original!
                     </p>
                 </div>
@@ -657,136 +743,136 @@
     </section>
 
     <!-- SEÇÃO DO CHECKOUT / SIMULADOR INTERATIVO DE ORDER BUMP -->
-    <section id="checkout-section" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div class="text-center mb-10">
+    <section id="checkout-section" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div class="text-center mb-8 sm:mb-10">
             <span class="bg-patriotGold text-black text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
                 Monte Seu Arsenal
             </span>
-            <h2 class="text-2xl sm:text-4xl font-black mt-3 text-white">
+            <h2 class="text-2xl sm:text-4xl font-black mt-3 text-white break-words-safe">
                 Simule Seu Pedido e <span class="text-patriotGold">Leve Tudo Com Super Desconto</span>
             </h2>
-            <p class="text-gray-300 text-sm mt-2 max-w-xl mx-auto">
+            <p class="text-gray-300 text-xs sm:text-sm mt-2 max-w-xl mx-auto break-words-safe">
                 Marque os materiais adicionais abaixo para ver seu desconto instantâneo antes de ir para o pagamento seguro:
             </p>
         </div>
 
         <!-- BOX SIMULADOR DE CHECKOUT -->
-        <div class="bg-patriotCard rounded-3xl border-2 border-patriotGold shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+        <div class="bg-patriotCard rounded-3xl border-2 border-patriotGold shadow-2xl p-4 sm:p-8 lg:p-10 relative overflow-hidden">
             <!-- Decorative badge -->
             <div class="absolute top-0 right-0 bg-gradient-to-l from-patriotGreen/20 to-transparent p-6 pointer-events-none"></div>
 
-            <div class="space-y-4 mb-8">
+            <div class="space-y-3 sm:space-y-4 mb-8">
                 
                 <!-- Item Principal (Fixo / Marcado) -->
-                <div class="bg-patriotDark/90 p-4 sm:p-5 rounded-2xl border-2 border-patriotGold flex items-center justify-between gap-4 shadow-lg">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-7 h-7 rounded-lg bg-patriotGold text-black font-black flex items-center justify-center text-sm shrink-0">
+                <div class="bg-patriotDark/90 p-3.5 sm:p-5 rounded-2xl border-2 border-patriotGold flex items-center justify-between gap-3 sm:gap-4 shadow-lg min-w-0">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-patriotGold text-black font-black flex items-center justify-center text-xs sm:text-sm shrink-0">
                             ✓
                         </div>
-                        <img src="assets/livrocolorir.png" alt="Livro para Colorir: Um Brasil Patriota" class="w-12 h-16 object-cover rounded shadow border border-gray-700 hidden sm:block">
-                        <div>
-                            <span class="text-[10px] font-black uppercase tracking-wider bg-patriotGold/20 text-patriotGold px-2 py-0.5 rounded border border-patriotGold/30">
+                        <img src="assets/livrocolorir.png" alt="Livro para Colorir: Um Brasil Patriota" class="w-10 sm:w-12 h-14 sm:h-16 object-cover rounded shadow border border-gray-700 hidden sm:block shrink-0">
+                        <div class="min-w-0">
+                            <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-patriotGold/20 text-patriotGold px-2 py-0.5 rounded border border-patriotGold/30">
                                 Item Obrigatório / Principal
                             </span>
-                            <h4 class="font-extrabold text-white text-sm sm:text-base mt-1">Livro para Colorir: Um Brasil Patriota</h4>
-                            <p class="text-xs text-gray-300">30 ilustrações históricas em PDF de alta qualidade para impressão em casa.</p>
+                            <h4 class="font-extrabold text-white text-xs sm:text-base mt-1 break-words-safe leading-snug">Livro para Colorir: Um Brasil Patriota</h4>
+                            <p class="text-[11px] sm:text-xs text-gray-300 break-words-safe mt-0.5">30 ilustrações históricas em PDF de alta qualidade para impressão em casa.</p>
                         </div>
                     </div>
                     <div class="text-right shrink-0">
-                        <span class="text-xs text-gray-500 line-through block">R$ 67,00</span>
-                        <span class="text-lg sm:text-xl font-black text-patriotGold">R$ 19,90</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-through block">R$ 67,00</span>
+                        <span class="text-base sm:text-xl font-black text-patriotGold">R$ 19,90</span>
                     </div>
                 </div>
 
                 <!-- Order Bump 1 Checkbox Interativo: Os Maiores Feitos de Jair Bolsonaro -->
-                <label class="cursor-pointer bg-patriotDark/60 hover:bg-patriotDark/90 p-4 sm:p-5 rounded-2xl border-2 border-dashed border-emerald-500/50 hover:border-patriotGreen flex items-center justify-between gap-4 transition-all duration-200 block group" id="label-bump-1">
-                    <div class="flex items-center gap-3.5">
-                        <input type="checkbox" id="bump-1-checkbox" onchange="calculateTotal()" class="w-6 h-6 rounded-md accent-patriotGreen text-patriotGreen bg-gray-900 border-gray-600 focus:ring-patriotGreen cursor-pointer shrink-0">
-                        <img src="assets/olegadobolsonaro.png" alt="Os Maiores Feitos de Jair Bolsonaro" class="w-12 h-16 object-cover rounded shadow border border-gray-700 hidden sm:block">
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-950 text-patriotGreenLight px-2 py-0.5 rounded border border-emerald-500/40">
+                <label class="cursor-pointer bg-patriotDark/60 hover:bg-patriotDark/90 p-3.5 sm:p-5 rounded-2xl border-2 border-dashed border-emerald-500/50 hover:border-patriotGreen flex items-center justify-between gap-3 sm:gap-4 transition-all duration-200 block group min-w-0" id="label-bump-1">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <input type="checkbox" id="bump-1-checkbox" onchange="calculateTotal()" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md accent-patriotGreen text-patriotGreen bg-gray-900 border-gray-600 focus:ring-patriotGreen cursor-pointer shrink-0">
+                        <img src="assets/olegadobolsonaro.png" alt="Os Maiores Feitos de Jair Bolsonaro" class="w-10 sm:w-12 h-14 sm:h-16 object-cover rounded shadow border border-gray-700 hidden sm:block shrink-0">
+                        <div class="min-w-0">
+                            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                                <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-emerald-950 text-patriotGreenLight px-2 py-0.5 rounded border border-emerald-500/40">
                                     Order Bump 01
                                 </span>
-                                <span class="text-[11px] font-bold text-patriotGold animate-pulse">🔥 O Pesadelo do PT</span>
+                                <span class="text-[10px] sm:text-[11px] font-bold text-patriotGold animate-pulse">🔥 O Pesadelo do PT</span>
                             </div>
-                            <h4 class="font-bold text-white text-sm sm:text-base mt-1 group-hover:text-patriotGreen transition-colors">
+                            <h4 class="font-bold text-white text-xs sm:text-base mt-1 group-hover:text-patriotGreen transition-colors break-words-safe leading-snug">
                                 Sim! Adicionar "Os Maiores Feitos de Jair Bolsonaro"
                             </h4>
-                            <p class="text-xs text-gray-300">Dossiê oficial com números e balanços auditados que desmascaram o PT.</p>
+                            <p class="text-[11px] sm:text-xs text-gray-300 break-words-safe mt-0.5">Dossiê oficial com números e balanços auditados que desmascaram o PT.</p>
                         </div>
                     </div>
                     <div class="text-right shrink-0">
-                        <span class="text-xs text-gray-500 line-through block">R$ 37,00</span>
-                        <span class="text-base sm:text-lg font-black text-patriotGreen">+ R$ 12,90</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-through block">R$ 37,00</span>
+                        <span class="text-sm sm:text-lg font-black text-patriotGreen">+ R$ 12,90</span>
                     </div>
                 </label>
 
                 <!-- Order Bump 2 Checkbox Interativo: O Futuro da Direita: Flávio Bolsonaro -->
-                <label class="cursor-pointer bg-patriotDark/60 hover:bg-patriotDark/90 p-4 sm:p-5 rounded-2xl border-2 border-dashed border-blue-500/50 hover:border-blue-400 flex items-center justify-between gap-4 transition-all duration-200 block group" id="label-bump-2">
-                    <div class="flex items-center gap-3.5">
-                        <input type="checkbox" id="bump-2-checkbox" onchange="calculateTotal()" class="w-6 h-6 rounded-md accent-blue-500 text-blue-500 bg-gray-900 border-gray-600 focus:ring-blue-500 cursor-pointer shrink-0">
-                        <img src="assets/ofuturodadireita.png" alt="O Futuro da Direita: Flávio Bolsonaro" class="w-12 h-16 object-cover rounded shadow border border-gray-700 hidden sm:block">
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-[10px] font-black uppercase tracking-wider bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-500/40">
+                <label class="cursor-pointer bg-patriotDark/60 hover:bg-patriotDark/90 p-3.5 sm:p-5 rounded-2xl border-2 border-dashed border-blue-500/50 hover:border-blue-400 flex items-center justify-between gap-3 sm:gap-4 transition-all duration-200 block group min-w-0" id="label-bump-2">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <input type="checkbox" id="bump-2-checkbox" onchange="calculateTotal()" class="w-5 h-5 sm:w-6 sm:h-6 rounded-md accent-blue-500 text-blue-500 bg-gray-900 border-gray-600 focus:ring-blue-500 cursor-pointer shrink-0">
+                        <img src="assets/ofuturodadireita.png" alt="O Futuro da Direita: Flávio Bolsonaro" class="w-10 sm:w-12 h-14 sm:h-16 object-cover rounded shadow border border-gray-700 hidden sm:block shrink-0">
+                        <div class="min-w-0">
+                            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                                <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-500/40">
                                     Order Bump 02
                                 </span>
-                                <span class="text-[11px] font-bold text-blue-300">🏛️ Retomada 2026</span>
+                                <span class="text-[10px] sm:text-[11px] font-bold text-blue-300">🏛️ Retomada 2026</span>
                             </div>
-                            <h4 class="font-bold text-white text-sm sm:text-base mt-1 group-hover:text-blue-400 transition-colors">
+                            <h4 class="font-bold text-white text-xs sm:text-base mt-1 group-hover:text-blue-400 transition-colors break-words-safe leading-snug">
                                 Sim! Adicionar "O Futuro da Direita: Flávio Bolsonaro"
                             </h4>
-                            <p class="text-xs text-gray-300">A estratégia parlamentar no Senado para frear a destruição petista e vencer.</p>
+                            <p class="text-[11px] sm:text-xs text-gray-300 break-words-safe mt-0.5">A estratégia parlamentar no Senado para frear a destruição petista e vencer.</p>
                         </div>
                     </div>
                     <div class="text-right shrink-0">
-                        <span class="text-xs text-gray-500 line-through block">R$ 47,00</span>
-                        <span class="text-base sm:text-lg font-black text-blue-400">+ R$ 14,90</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 line-through block">R$ 47,00</span>
+                        <span class="text-sm sm:text-lg font-black text-blue-400">+ R$ 14,90</span>
                     </div>
                 </label>
 
             </div>
 
             <!-- Resumo e Cálculo em Tempo Real -->
-            <div class="bg-patriotDark p-6 rounded-2xl border border-gray-800 mb-8 shadow-inner">
-                <div class="flex justify-between items-center text-sm text-gray-400 mb-2">
+            <div class="bg-patriotDark p-4 sm:p-6 rounded-2xl border border-gray-800 mb-6 sm:mb-8 shadow-inner">
+                <div class="flex justify-between items-center text-xs sm:text-sm text-gray-400 mb-2">
                     <span>Preço Original de Tabela:</span>
                     <span id="original-price" class="line-through">R$ 67,00</span>
                 </div>
-                <div class="flex justify-between items-center text-sm text-patriotGreenLight mb-2">
+                <div class="flex justify-between items-center text-xs sm:text-sm text-patriotGreenLight mb-2">
                     <span>Economia Aplicada no Combo:</span>
                     <span id="savings-amount" class="font-black">R$ 47,10 economizados!</span>
                 </div>
                 <div class="border-t border-gray-800 my-3 pt-3 flex justify-between items-baseline">
-                    <div>
-                        <span class="text-base sm:text-lg font-extrabold text-white block">Valor Final do Pedido:</span>
-                        <span class="text-xs text-gray-400">Pagamento único via PIX ou Cartão • Sem mensalidades</span>
+                    <div class="min-w-0 pr-2">
+                        <span class="text-sm sm:text-lg font-extrabold text-white block break-words-safe">Valor Final do Pedido:</span>
+                        <span class="text-[10px] sm:text-xs text-gray-400 block break-words-safe">Pagamento único via PIX ou Cartão</span>
                     </div>
-                    <div class="text-right">
-                        <span id="total-display" class="text-3xl sm:text-4xl font-black text-patriotGold">R$ 19,90</span>
+                    <div class="text-right shrink-0">
+                        <span id="total-display" class="text-2xl sm:text-4xl font-black text-patriotGold">R$ 19,90</span>
                     </div>
                 </div>
             </div>
 
             <!-- Botão de Ação Dinâmico com Altíssimo CTA -->
-            <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" id="checkout-cta-button" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-lg py-5 px-6 rounded-2xl shadow-xl shadow-patriotGold/30 transition-all transform hover:-translate-y-1 text-center block uppercase tracking-wider mb-4">
+            <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" id="checkout-cta-button" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-sm sm:text-lg py-4 sm:py-5 px-4 sm:px-6 rounded-2xl shadow-xl shadow-patriotGold/30 transition-all transform hover:-translate-y-1 text-center block uppercase tracking-wider mb-4 break-words-safe">
                 GARANTIR MEU LIVRO INFANTIL AGORA (R$ 19,90)
             </a>
 
             <!-- Informações de Segurança e Garantia -->
-            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400">
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-gray-400">
                 <span class="flex items-center gap-1.5 font-bold">
-                    <svg class="w-4 h-4 text-patriotGreen" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <svg class="w-4 h-4 text-patriotGreen shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                     Checkout Blindado Kiwify
                 </span>
                 <span class="flex items-center gap-1.5 font-bold">
-                    <svg class="w-4 h-4 text-patriotGold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    Garantia Incondicional 7 Dias
+                    <svg class="w-4 h-4 text-patriotGold shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Garantia 7 Dias
                 </span>
                 <span class="flex items-center gap-1.5 font-bold">
-                    <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                    Acesso Imediato no E-mail
+                    <svg class="w-4 h-4 text-blue-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    Envio Imediato
                 </span>
             </div>
 
@@ -794,14 +880,14 @@
     </section>
 
     <!-- SEÇÃO DE GARANTIA INCONDICIONAL -->
-    <section class="py-12 px-4 max-w-4xl mx-auto">
-        <div class="bg-patriotCard/90 rounded-3xl p-8 sm:p-10 border border-gray-800 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-patriotGreen/20 to-patriotGold/20 border-2 border-patriotGold/40 flex items-center justify-center text-4xl shrink-0 shadow-lg">
+    <section class="py-10 sm:py-12 px-4 max-w-4xl mx-auto">
+        <div class="bg-patriotCard/90 rounded-3xl p-6 sm:p-10 border border-gray-800 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left min-w-0">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-patriotGreen/20 to-patriotGold/20 border-2 border-patriotGold/40 flex items-center justify-center text-3xl sm:text-4xl shrink-0 shadow-lg">
                 🛡️
             </div>
-            <div>
-                <h3 class="text-xl sm:text-2xl font-black text-white mb-2">Garantia Blindada de 7 Dias — Risco Zero Para Você!</h3>
-                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            <div class="min-w-0">
+                <h3 class="text-lg sm:text-2xl font-black text-white mb-2 break-words-safe">Garantia Blindada de 7 Dias — Risco Zero Para Você!</h3>
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed break-words-safe">
                     Você pode acessar todos os materiais digitais, ler os e-books, imprimir os desenhos de colorir e testar os conteúdos. Se por qualquer motivo você achar que este material não protegeu sua família ou não cumpriu a promessa, basta solicitar o reembolso na Kiwify em até 7 dias e devolveremos 100% do seu dinheiro. Sem letras miúdas.
                 </p>
             </div>
@@ -809,53 +895,53 @@
     </section>
 
     <!-- FAQ / PERGUNTAS FREQUENTES INTERATIVO -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-gray-800/80">
-        <div class="text-center mb-12">
+    <section class="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-gray-800/80">
+        <div class="text-center mb-10 sm:mb-12">
             <span class="bg-gray-800 text-gray-300 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">Tire Suas Dúvidas</span>
-            <h3 class="text-2xl sm:text-3xl font-black text-white mt-3">Perguntas Frequentes</h3>
+            <h3 class="text-xl sm:text-3xl font-black text-white mt-3">Perguntas Frequentes</h3>
         </div>
 
         <div class="space-y-4">
             <!-- FAQ 1 -->
-            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
-                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
-                    <span>O material mostra exatamente como o PT quebrou o Brasil?</span>
-                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-4 sm:p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-sm sm:text-base">
+                    <span class="break-words-safe pr-3">O material mostra exatamente como o PT quebrou o Brasil?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-2 shrink-0">▼</span>
                 </summary>
-                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                <p class="text-xs sm:text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3 break-words-safe">
                     Sim! O eBook <strong>Os Maiores Feitos de Jair Bolsonaro</strong> traz um dossiê factual comparativo: mostra como o PT entregou o Brasil com o maior rombo da história das estatais (Petrolão, rombos bilionários e empréstimos secretos do BNDES para Cuba e Venezuela) e compara com a recuperação sob Bolsonaro, onde as estatais bateram recorde de R$ 180 bilhões de lucro sem aumento de impostos federais.
                 </p>
             </details>
 
             <!-- FAQ 2 -->
-            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
-                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
-                    <span>Como e quando recebo o acesso aos livros digitais?</span>
-                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-4 sm:p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-sm sm:text-base">
+                    <span class="break-words-safe pr-3">Como e quando recebo o acesso aos livros digitais?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-2 shrink-0">▼</span>
                 </summary>
-                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                <p class="text-xs sm:text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3 break-words-safe">
                     O acesso é 100% imediato e automatizado! Assim que o seu pagamento for confirmado (no PIX ou Cartão de Crédito), você recebe um e-mail com os links para download dos arquivos em PDF de alta qualidade e o acesso à área de membros exclusiva.
                 </p>
             </details>
 
             <!-- FAQ 3 -->
-            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
-                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
-                    <span>Como adiciono os outros 2 livros por R$ 12,90 e R$ 14,90?</span>
-                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-4 sm:p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-sm sm:text-base">
+                    <span class="break-words-safe pr-3">Como adiciono os outros 2 livros por R$ 12,90 e R$ 14,90?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-2 shrink-0">▼</span>
                 </summary>
-                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                <p class="text-xs sm:text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3 break-words-safe">
                     Ao clicar em comprar, você será levado ao checkout oficial da Kiwify. Lá você verá o <strong>Livro para Colorir: Um Brasil Patriota</strong> selecionado e, logo abaixo, duas caixinhas chamadas <em>Order Bump</em>: basta marcar as caixinhas para adicionar os eBooks <strong>Os Maiores Feitos de Jair Bolsonaro (R$ 12,90)</strong> e <strong>O Futuro da Direita: Flávio Bolsonaro (R$ 14,90)</strong>.
                 </p>
             </details>
 
             <!-- FAQ 4 -->
-            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
-                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
-                    <span>Posso imprimir as folhas de colorir mais de uma vez?</span>
-                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-4 sm:p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-sm sm:text-base">
+                    <span class="break-words-safe pr-3">Posso imprimir as folhas de colorir mais de uma vez?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-2 shrink-0">▼</span>
                 </summary>
-                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                <p class="text-xs sm:text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3 break-words-safe">
                     Sim! O arquivo PDF é seu para sempre. Você pode imprimir as 30 ilustrações em qualquer impressora caseira formato A4 quantas vezes quiser para seus filhos, sobrinhos, netos ou alunos.
                 </p>
             </details>
@@ -865,11 +951,11 @@
     <!-- FOOTER -->
     <footer class="bg-patriotCard py-12 text-center text-xs text-gray-500 border-t border-gray-800 px-4">
         <div class="max-w-4xl mx-auto space-y-3">
-            <p class="text-sm font-bold text-gray-400">© 2026 Arsenal & Coleção Patriota. Todos os direitos reservados.</p>
-            <p class="leading-relaxed">
+            <p class="text-xs sm:text-sm font-bold text-gray-400">© 2026 Arsenal & Coleção Patriota. Todos os direitos reservados.</p>
+            <p class="leading-relaxed break-words-safe">
                 Este produto digital tem caráter educativo, cultural e informativo voltado ao público conservador brasileiro. Não possuímos vínculo governamental direto; nossa missão é a difusão da verdade histórica, valores cívicos e soberania nacional.
             </p>
-            <div class="pt-4 flex justify-center gap-6 text-gray-400 font-medium">
+            <div class="pt-4 flex flex-wrap justify-center gap-4 sm:gap-6 text-gray-400 font-medium">
                 <a href="#checkout-section" class="hover:text-patriotGold transition">Comprar Agora</a>
                 <a href="#como-pt-quebrou" class="hover:text-patriotGold transition">Como o PT Quebrou o País</a>
                 <a href="#produtos-detalhes" class="hover:text-patriotGold transition">Ver Produtos</a>
@@ -881,22 +967,22 @@
 
     <!-- MODAL DE VISUALIZAÇÃO / ZOOM DAS CAPAS -->
     <div id="cover-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all" onclick="closeModalOnBackdrop(event)">
-        <div class="bg-patriotCard border-2 border-gray-700 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl flex flex-col items-center" onclick="event.stopPropagation()">
+        <div class="bg-patriotCard border-2 border-gray-700 rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl flex flex-col items-center min-w-0" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg transition">
                 ✕
             </button>
             
-            <div class="w-full max-w-[280px] sm:max-w-[320px] rounded-xl overflow-hidden shadow-2xl border border-gray-600 bg-white my-4 relative book-container">
+            <div class="w-full max-w-[260px] sm:max-w-[300px] rounded-xl overflow-hidden shadow-2xl border border-gray-600 bg-white my-3 sm:my-4 relative book-container">
                 <div class="book-spine-effect"></div>
                 <img id="modal-image" src="" alt="Capa Ampliada" class="w-full h-auto block">
             </div>
 
-            <h3 id="modal-title" class="text-lg font-bold text-white text-center mt-2">Título do Livro</h3>
-            <p id="modal-desc" class="text-xs text-gray-400 text-center mt-1 mb-4">Descrição breve do livro.</p>
+            <h3 id="modal-title" class="text-base sm:text-lg font-bold text-white text-center mt-2 break-words-safe w-full">Título do Livro</h3>
+            <p id="modal-desc" class="text-xs text-gray-400 text-center mt-1 mb-4 break-words-safe w-full">Descrição breve do livro.</p>
             
             <div class="flex items-center justify-between w-full border-t border-gray-800 pt-4 mt-2">
-                <span id="modal-price" class="text-xl font-black text-patriotGold">R$ 19,90</span>
-                <a href="#checkout-section" onclick="closeModal()" class="bg-patriotGold hover:bg-patriotGoldHover text-black font-extrabold text-xs uppercase px-5 py-2.5 rounded-xl transition shadow">
+                <span id="modal-price" class="text-lg sm:text-xl font-black text-patriotGold">R$ 19,90</span>
+                <a href="#checkout-section" onclick="closeModal()" class="bg-patriotGold hover:bg-patriotGoldHover text-black font-extrabold text-xs uppercase px-4 sm:px-5 py-2.5 rounded-xl transition shadow">
                     Ir para o Pedido
                 </a>
             </div>
