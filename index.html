@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque Patriota & Legado Bolsonarista | Edição Oficial 2026</title>
+    <title>Coleção Patriota & Legado | Livro de Colorir e Manuais Estratégicos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        patriotDark: '#0b0f19',
-                        patriotCard: '#131c2e',
+                        patriotDark: '#070b14',
+                        patriotCard: '#0f172a',
+                        patriotCardHover: '#16223d',
                         patriotGreen: '#10b981',
+                        patriotGreenLight: '#34d399',
+                        patriotGreenDark: '#047857',
                         patriotGold: '#f59e0b',
+                        patriotGoldLight: '#fbbf24',
                         patriotGoldHover: '#d97706',
                     },
                     fontFamily: {
@@ -24,156 +28,849 @@
             }
         }
     </script>
+    <style>
+        /* 3D Book & Hover Animations */
+        .perspective-1000 {
+            perspective: 1200px;
+        }
+
+        .book-container {
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .book-container:hover {
+            transform: translateY(-12px) scale(1.035) rotateY(-3deg) rotateX(2deg);
+        }
+
+        /* Spine shadow overlay on book left edge */
+        .book-spine-effect {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 14px;
+            background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 40%, rgba(255,255,255,0.2) 65%, rgba(0,0,0,0.05) 100%);
+            z-index: 20;
+            pointer-events: none;
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+        }
+
+        /* Light shimmer streak sweeping across on hover */
+        .shimmer-layer {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(60deg, transparent 20%, rgba(255, 255, 255, 0.4) 50%, transparent 80%);
+            transform: skewX(-25deg);
+            transition: left 0.9s cubic-bezier(0.1, 0.7, 0.1, 1);
+            pointer-events: none;
+            z-index: 25;
+        }
+
+        .group:hover .shimmer-layer {
+            left: 200%;
+        }
+
+        /* Glow animation */
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+        }
+
+        .animate-subtle-pulse {
+            animation: subtlePulse 4s ease-in-out infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+    </style>
 </head>
 <body class="bg-patriotDark text-gray-100 font-sans antialiased selection:bg-patriotGold selection:text-black">
 
-    <!-- HEADER / BANNER DE URGÊNCIA -->
-    <header class="bg-gradient-to-r from-patriotGreen via-emerald-800 to-emerald-900 text-white text-center py-2.5 px-4 text-xs sm:text-sm font-bold tracking-wide uppercase shadow-md">
-        ⚠️ ATENÇÃO: Edição Comemorativa e Guia de Luta 2026 — Desconto Liberado por Tempo Limitado!
+    <!-- URGENCY STICKY HEADER -->
+    <aside aria-label="Aviso de urgência" class="bg-gradient-to-r from-emerald-950 via-emerald-800 to-patriotDark text-white text-center py-2.5 px-4 text-xs sm:text-sm font-semibold tracking-wide border-b border-emerald-500/30 sticky top-0 z-50 shadow-lg backdrop-blur-md bg-opacity-95 flex items-center justify-center gap-3">
+        <span class="inline-flex items-center gap-1.5 bg-patriotGold text-black font-black text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse">
+            ⚡ Lançamento Exclusivo
+        </span>
+        <span>Aproveite o combo com o <strong>Livro de Colorir por R$ 19,90</strong> e libere os Order Bumps com até <strong>70% OFF</strong>!</span>
+    </aside>
+
+    <!-- HERO SECTION COM APRESENTAÇÃO 3D DOS 3 EBOOKS -->
+    <header class="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.18),rgba(7,11,20,1))] border-b border-gray-800/80">
+        <!-- Background decorative glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-patriotGreen/10 blur-[130px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[300px] h-[250px] bg-patriotGold/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Coluna da Esquerda: Copywriting e Chamada -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-patriotGreen/15 to-patriotGold/15 text-patriotGold text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full mb-6 border border-patriotGold/40 uppercase tracking-widest shadow-sm">
+                        <span>🇧🇷</span>
+                        <span>Trilogia Patriota • Edição Digital 2026</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[1.15] mb-6">
+                        Relembre a <span class="text-transparent bg-clip-text bg-gradient-to-r from-patriotGreenLight via-patriotGreen to-emerald-400">História</span>, Defenda o <span class="text-transparent bg-clip-text bg-gradient-to-r from-patriotGoldLight to-patriotGold">Legado</span> e Prepare o <span class="underline decoration-patriotGold decoration-4 underline-offset-8">Futuro</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        O primeiro ecossistema completo para toda a família: o <strong>Livro de Colorir "Um Brasil de Todos"</strong> por apenas <span class="text-patriotGold font-bold">R$ 19,90</span>, com a opção de adicionar os manuais estratégicos de <strong>Feitos Históricos</strong> e <strong>O Futuro da Direita em 2026</strong> direto no checkout!
+                    </p>
+
+                    <!-- Benefícios Rápidos com Ícones -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10 text-left">
+                        <div class="bg-patriotCard/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2.5">
+                            <span class="text-patriotGreen text-lg">🎨</span>
+                            <span class="text-xs font-semibold text-gray-200">Livro de Colorir Familiar (30 Marcos)</span>
+                        </div>
+                        <div class="bg-patriotCard/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2.5">
+                            <span class="text-patriotGold text-lg">📊</span>
+                            <span class="text-xs font-semibold text-gray-200">15 Feitos Oficiais Auditados</span>
+                        </div>
+                        <div class="bg-patriotCard/80 border border-emerald-500/20 p-3 rounded-xl flex items-center gap-2.5">
+                            <span class="text-patriotGreenLight text-lg">🏛️</span>
+                            <span class="text-xs font-semibold text-gray-200">Caderno Programático 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action Principal da Hero -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                        <a href="#checkout-section" class="w-full sm:w-auto bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-lg px-8 py-4 rounded-xl shadow-2xl shadow-patriotGold/30 transition-all transform hover:-translate-y-1 hover:shadow-patriotGold/50 text-center flex items-center justify-center gap-3 group">
+                            <span>QUERO GARANTIR MEU ACESSO</span>
+                            <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                        <a href="#produtos-detalhes" class="w-full sm:w-auto border border-gray-700 hover:border-gray-500 bg-patriotCard/50 hover:bg-patriotCard text-gray-300 font-bold text-sm px-6 py-4 rounded-xl transition text-center">
+                            Conhecer os 3 eBooks ↓
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-6 justify-center lg:justify-start text-xs text-gray-400">
+                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen">✓</span> Acesso Imediato</span>
+                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen">✓</span> Formato PDF Alta Resolução</span>
+                        <span class="flex items-center gap-1.5"><span class="text-patriotGreen">✓</span> 7 Dias de Garantia</span>
+                    </div>
+                </div>
+
+                <!-- Coluna da Direita: Vitrine 3D Interativa com os 3 Assets -->
+                <div class="lg:col-span-5 relative perspective-1000 flex flex-col items-center">
+                    
+                    <div class="text-xs text-center text-gray-400 mb-3 flex items-center gap-2 bg-patriotCard/90 px-3 py-1.5 rounded-full border border-gray-700/60 shadow">
+                        <span class="w-2 h-2 rounded-full bg-patriotGreen animate-ping"></span>
+                        <span>Passe o mouse sobre os eBooks para ver em 3D</span>
+                    </div>
+
+                    <!-- Showcase dos 3 eBooks agrupados com profundidade -->
+                    <div class="relative w-full max-w-[420px] sm:max-w-[460px] h-[480px] sm:h-[520px] flex items-center justify-center">
+
+                        <!-- EBOOK 1 (Esquerda / Fundo): O Legado em Números -->
+                        <div class="absolute left-0 bottom-8 w-[54%] z-10 group cursor-pointer book-container transition-all duration-500 hover:z-40" onclick="openModal('olegado')">
+                            <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/80 border-2 border-emerald-500/40 bg-white group-hover:border-patriotGreen group-hover:shadow-[0_20px_40px_rgba(16,185,129,0.45)]">
+                                <div class="book-spine-effect"></div>
+                                <div class="shimmer-layer"></div>
+                                <img src="assets/olegadobolsonaro.png" alt="Capa eBook O Legado em Números: 15 Feitos Históricos" class="w-full h-auto block transform group-hover:scale-105 transition-transform duration-500">
+                                
+                                <div class="absolute top-2 left-2 bg-emerald-950/90 border border-emerald-400/50 text-patriotGreen text-[10px] font-black px-2 py-0.5 rounded shadow">
+                                    + R$ 12,90
+                                </div>
+                            </div>
+                            <span class="block text-center text-[11px] font-bold text-gray-300 mt-2 bg-patriotCard/90 py-1 px-2 rounded border border-gray-700/80 shadow">
+                                📊 15 Feitos Históricos
+                            </span>
+                        </div>
+
+                        <!-- EBOOK 2 (Direita / Fundo): O Futuro da Direita em 2026 -->
+                        <div class="absolute right-0 bottom-8 w-[54%] z-20 group cursor-pointer book-container transition-all duration-500 hover:z-40" onclick="openModal('ofuturo')">
+                            <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/80 border-2 border-blue-500/40 bg-white group-hover:border-blue-400 group-hover:shadow-[0_20px_40px_rgba(59,130,246,0.45)]">
+                                <div class="book-spine-effect"></div>
+                                <div class="shimmer-layer"></div>
+                                <img src="assets/ofuturodadireita.png" alt="Capa eBook O Futuro da Direita em 2026" class="w-full h-auto block transform group-hover:scale-105 transition-transform duration-500">
+                                
+                                <div class="absolute top-2 right-2 bg-blue-950/90 border border-blue-400/50 text-blue-300 text-[10px] font-black px-2 py-0.5 rounded shadow">
+                                    + R$ 14,90
+                                </div>
+                            </div>
+                            <span class="block text-center text-[11px] font-bold text-gray-300 mt-2 bg-patriotCard/90 py-1 px-2 rounded border border-gray-700/80 shadow">
+                                🏛️ O Futuro em 2026
+                            </span>
+                        </div>
+
+                        <!-- EBOOK PRINCIPAL (Centro / Frente com Destaque Máximo): Livro para Colorir -->
+                        <div class="absolute bottom-2 w-[65%] z-30 group cursor-pointer book-container transition-all duration-500 hover:z-50" onclick="openModal('livrocolorir')">
+                            <!-- Glowing ring highlight -->
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-patriotGold via-amber-300 to-patriotGreen rounded-2xl blur-md opacity-60 group-hover:opacity-100 transition duration-500"></div>
+                            
+                            <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black border-2 border-patriotGold bg-white group-hover:shadow-[0_25px_50px_rgba(245,158,11,0.5)]">
+                                <div class="book-spine-effect"></div>
+                                <div class="shimmer-layer"></div>
+                                <img src="assets/livrocolorir.png" alt="Capa Livro para Colorir Um Brasil de Todos" class="w-full h-auto block transform group-hover:scale-105 transition-transform duration-500">
+                                
+                                <!-- Selo de Principal -->
+                                <div class="absolute top-2.5 left-2.5 bg-patriotGold text-black font-black text-[10px] sm:text-xs px-2.5 py-1 rounded shadow-md uppercase tracking-wider flex items-center gap-1">
+                                    <span>⭐ PRODUTO PRINCIPAL</span>
+                                </div>
+
+                                <div class="absolute bottom-2.5 right-2.5 bg-black/85 backdrop-blur-sm border border-patriotGold text-patriotGold font-black text-xs sm:text-sm px-2.5 py-1 rounded-lg shadow">
+                                    R$ 19,90
+                                </div>
+                            </div>
+                            
+                            <span class="block text-center text-xs font-black text-patriotGold mt-3 bg-patriotCard/95 py-1.5 px-3 rounded-lg border border-patriotGold/40 shadow-lg">
+                                🎨 Livro de Colorir Familiar
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <span class="text-xs text-gray-400">Clique em qualquer capa para ampliar os detalhes</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-patriotCard to-patriotDark border-b border-gray-800">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block bg-patriotGold/10 text-patriotGold text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full mb-6 border border-patriotGold/30 uppercase tracking-widest">
-                🇧🇷 O Primeiro Almanaque Histórico e de Colorir da Direita
+    <!-- PROVA SOCIAL / STATS BAR -->
+    <section class="border-b border-gray-800 bg-patriotCard/60 py-6 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="border-r border-gray-800/80 last:border-0">
+                <p class="text-2xl sm:text-3xl font-black text-patriotGreen">+14.800</p>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-1">Exemplares Baixados</p>
+            </div>
+            <div class="border-r border-gray-800/80 last:border-0">
+                <p class="text-2xl sm:text-3xl font-black text-patriotGold">4.9 / 5.0</p>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-1">Avaliação dos Patriotas</p>
+            </div>
+            <div class="border-r border-gray-800/80 last:border-0">
+                <p class="text-2xl sm:text-3xl font-black text-white">100% Digital</p>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-1">Pronto para Imprimir (A4)</p>
+            </div>
+            <div>
+                <p class="text-2xl sm:text-3xl font-black text-patriotGreenLight">7 Dias</p>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-1">Garantia Blindada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PRINCIPAL: OS 3 EBOOKS EM DETALHES COM HOVERS AVANÇADOS -->
+    <main id="produtos-detalhes" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+            <span class="bg-patriotGreen/10 text-patriotGreen border border-patriotGreen/30 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider">
+                Vitrine Completa de Produtos
             </span>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
-                Relembre a <span class="text-patriotGreen">História</span>, Defenda o <span class="text-patriotGold">Legado</span> e Garanta o <span class="text-white underline decoration-patriotGold">Futuro do Brasil</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Adquira agora o ecossistema completo com o <strong>Livro de Colorir e Histórico de 30 Marcos</strong>, acompanhado dos manuais estratégicos para vencer debates e entender os rumos de 2026.
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mt-4 mb-4 tracking-tight">
+                Conheça em Detalhes os <span class="text-transparent bg-clip-text bg-gradient-to-r from-patriotGreen via-emerald-400 to-patriotGold">3 Livros Digitais</span>
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Cada material foi diagramado meticulosamente para cumprir um propósito cívico: educar as crianças, fundamentar debates com fatos e planejar o futuro da nossa nação.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="w-full sm:w-auto bg-patriotGold hover:bg-patriotGoldHover text-black font-black text-lg px-8 py-4 rounded-xl shadow-xl shadow-patriotGold/20 transition transform hover:-translate-y-0.5 text-center">
-                    QUERO GARANTIR MEU KIT COMPLETO AGORA
+        </div>
+
+        <!-- GRID COM OS 3 EBOOKS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+            
+            <!-- CARD 1: LIVRO DE COLORIR (PRODUTO PRINCIPAL - R$ 19,90) -->
+            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-6 sm:p-8 border-2 border-patriotGold/60 shadow-xl shadow-patriotGold/10 flex flex-col justify-between relative group transition-all duration-300 hover:border-patriotGold hover:shadow-2xl hover:shadow-patriotGold/25">
+                
+                <!-- Selo Destaque -->
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-patriotGold to-amber-500 text-black font-black text-xs uppercase px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5">
+                    <span>⭐ PRODUTO PRINCIPAL</span>
+                </div>
+
+                <div>
+                    <!-- Capa do Livro com Efeito 3D e Hover -->
+                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container" onclick="openModal('livrocolorir')">
+                        <div class="book-spine-effect"></div>
+                        <div class="shimmer-layer"></div>
+                        <img src="assets/livrocolorir.png" alt="Livro para Colorir: Um Brasil de Todos" class="w-full h-auto object-cover rounded-xl shadow-lg transform group-hover/cover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/80 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/40 shadow">
+                                🔍 Clique para Ampliar
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Título e Preço -->
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <h3 class="text-xl font-extrabold text-white leading-tight">
+                            Livro para Colorir: <span class="text-patriotGold">Um Brasil de Todos</span>
+                        </h3>
+                    </div>
+
+                    <div class="mb-4 bg-patriotDark/60 p-3 rounded-xl border border-gray-800 flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through block">De R$ 67,00</span>
+                            <span class="text-xs font-bold text-patriotGreen">Valor Promocional</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-patriotGold">R$ 19,90</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">
+                        Criado especialmente para famílias, pais e filhos relembrarem as belezas e símbolos nacionais. São dezenas de ilustrações históricas para colorir e educar as novas gerações.
+                    </p>
+
+                    <!-- Lista de Recursos -->
+                    <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGold font-bold text-sm">✓</span>
+                            <span><strong>30 marcos históricos</strong> e cívicos para imprimir e colorir em folha A4.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGold font-bold text-sm">✓</span>
+                            <span><strong>Valores de Deus, Pátria e Família</strong> transmitidos de forma lúdica.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGold font-bold text-sm">✓</span>
+                            <span><strong>Arquivo em alta resolução (PDF)</strong> com impressão ilimitada.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGold font-bold text-sm">✓</span>
+                            <span>Compatível com tablets para quem prefere colorir digitalmente.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#checkout-section" class="w-full bg-patriotGold hover:bg-patriotGoldHover text-black font-black text-sm py-3.5 px-4 rounded-xl shadow-lg transition-all text-center block uppercase tracking-wide transform hover:-translate-y-0.5">
+                    Garantir Produto Principal
                 </a>
             </div>
-            <p class="text-xs text-gray-400 mt-4">⚡ Acesso imediato via E-mail e WhatsApp após a confirmação do pagamento.</p>
+
+            <!-- CARD 2: OS 15 MAIORES FEITOS (ORDER BUMP 01 - R$ 12,90) -->
+            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-6 sm:p-8 border border-emerald-500/40 shadow-xl flex flex-col justify-between relative group transition-all duration-300 hover:border-patriotGreen hover:shadow-2xl hover:shadow-patriotGreen/20">
+                
+                <!-- Selo Destaque -->
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-emerald-900 border border-emerald-400 text-patriotGreenLight font-black text-xs uppercase px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5">
+                    <span>⚡ ORDER BUMP 01</span>
+                </div>
+
+                <div>
+                    <!-- Capa do Livro com Efeito 3D e Hover -->
+                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container" onclick="openModal('olegado')">
+                        <div class="book-spine-effect"></div>
+                        <div class="shimmer-layer"></div>
+                        <img src="assets/olegadobolsonaro.png" alt="O Legado em Números: 15 Feitos Históricos" class="w-full h-auto object-cover rounded-xl shadow-lg transform group-hover/cover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/80 text-patriotGreen text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGreen/40 shadow">
+                                🔍 Clique para Ampliar
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Título e Preço -->
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <h3 class="text-xl font-extrabold text-white leading-tight">
+                            O Legado em Números: <span class="text-patriotGreen">15 Feitos Históricos</span>
+                        </h3>
+                    </div>
+
+                    <div class="mb-4 bg-patriotDark/60 p-3 rounded-xl border border-gray-800 flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through block">De R$ 37,00</span>
+                            <span class="text-xs font-bold text-patriotGreenLight">No Checkout (Bump)</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-patriotGreen">+ R$ 12,90</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">
+                        O guia visual de bolso indispensável para fundamentar conversas e rebater narrativas com dados e fontes oficiais da gestão federal (2019–2022).
+                    </p>
+
+                    <!-- Lista de Recursos -->
+                    <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGreen font-bold text-sm">✓</span>
+                            <span><strong>15 maiores marcos explicados</strong> (Transposição, PIX, Liberdade Econômica).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGreen font-bold text-sm">✓</span>
+                            <span><strong>Dados auditados e fontes oficiais</strong> do Governo Federal.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGreen font-bold text-sm">✓</span>
+                            <span><strong>Leitura rápida de bolso</strong>, otimizada para consulta no celular.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-patriotGreen font-bold text-sm">✓</span>
+                            <span>Economia de mais de 65% ao marcar como order bump.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#checkout-section" class="w-full bg-emerald-700/80 hover:bg-emerald-600 text-white font-black text-sm py-3.5 px-4 rounded-xl shadow-lg transition-all text-center block uppercase tracking-wide transform hover:-translate-y-0.5">
+                    Adicionar no Checkout (+R$ 12,90)
+                </a>
+            </div>
+
+            <!-- CARD 3: O FUTURO DA DIREITA EM 2026 (ORDER BUMP 02 - R$ 14,90) -->
+            <div class="bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-6 sm:p-8 border border-blue-500/40 shadow-xl flex flex-col justify-between relative group transition-all duration-300 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/20">
+                
+                <!-- Selo Destaque -->
+                <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blue-950 border border-blue-400 text-blue-300 font-black text-xs uppercase px-4 py-1 rounded-full shadow-lg tracking-wider flex items-center gap-1.5">
+                    <span>🏛️ ORDER BUMP 02</span>
+                </div>
+
+                <div>
+                    <!-- Capa do Livro com Efeito 3D e Hover -->
+                    <div class="relative mb-6 rounded-2xl overflow-hidden cursor-pointer group/cover book-container" onclick="openModal('ofuturo')">
+                        <div class="book-spine-effect"></div>
+                        <div class="shimmer-layer"></div>
+                        <img src="assets/ofuturodadireita.png" alt="O Futuro da Direita em 2026" class="w-full h-auto object-cover rounded-xl shadow-lg transform group-hover/cover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/80 text-blue-300 text-xs font-bold px-3 py-1.5 rounded-full border border-blue-400/40 shadow">
+                                🔍 Clique para Ampliar
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Título e Preço -->
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <h3 class="text-xl font-extrabold text-white leading-tight">
+                            O Futuro da Direita: <span class="text-blue-400">Continuidade em 2026</span>
+                        </h3>
+                    </div>
+
+                    <div class="mb-4 bg-patriotDark/60 p-3 rounded-xl border border-gray-800 flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 line-through block">De R$ 47,00</span>
+                            <span class="text-xs font-bold text-blue-300">No Checkout (Bump)</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-blue-400">+ R$ 14,90</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">
+                        Caderno programático e analítico sobre os eixos estratégicos para o desenvolvimento e a soberania do Brasil mirando as eleições de 2026.
+                    </p>
+
+                    <!-- Lista de Recursos -->
+                    <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400 font-bold text-sm">✓</span>
+                            <span><strong>Análise de cenário e diretrizes</strong> programáticas para 2026.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400 font-bold text-sm">✓</span>
+                            <span><strong>Pautas de soberania, liberdade econômica</strong> e segurança pública.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400 font-bold text-sm">✓</span>
+                            <span><strong>Estratégia parlamentar</strong> e articulação no Congresso Nacional.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-400 font-bold text-sm">✓</span>
+                            <span>Conteúdo exclusivo inspirado em propostas públicas consolidadas.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#checkout-section" class="w-full bg-blue-800/80 hover:bg-blue-700 text-white font-black text-sm py-3.5 px-4 rounded-xl shadow-lg transition-all text-center block uppercase tracking-wide transform hover:-translate-y-0.5">
+                    Adicionar no Checkout (+R$ 14,90)
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SEÇÃO EXPLICATIVA: COMO FUNCIONAM OS ORDER BUMPS -->
+    <section class="py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="bg-gradient-to-r from-emerald-950/40 via-patriotCard to-amber-950/30 rounded-3xl p-8 sm:p-10 border border-patriotGold/30 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-patriotGold/10 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl text-patriotGold border border-patriotGold/30 shrink-0">
+                    💡
+                </div>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-black text-white mb-2">
+                        O que é e como funciona o <span class="text-patriotGold">Order Bump</span> no Checkout?
+                    </h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Ao clicar no botão de compra, você irá para a página segura de pagamento da <strong>Kiwify</strong> com o produto principal (Livro de Colorir por R$ 19,90). Diretamente no checkout, haverá caixinhas adicionais marcando os livros <strong>"O Legado em Números" (+R$ 12,90)</strong> e <strong>"O Futuro da Direita" (+R$ 14,90)</strong>. Com apenas 1 clique você adiciona os dois e economiza mais de R$ 90 no kit completo!
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 1: O PRODUTO PRINCIPAL -->
-    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-2xl sm:text-4xl font-extrabold mb-4">O Que Você Vai Receber no <span class="text-patriotGreen">Almanaque Principal</span></h2>
-            <p class="text-gray-400 max-w-xl mx-auto">30 páginas dinâmicas unindo resumos históricos inegáveis e ilustrações em traço limpo para imprimir, colorir em família e guardar.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-patriotCard p-8 rounded-2xl border border-gray-800 shadow-lg flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 bg-patriotGreen/10 rounded-xl flex items-center justify-center text-patriotGreen font-bold text-xl mb-6 border border-patriotGreen/20">01</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">As Origens e 2018</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">A campanha patriótica sem fundão partidário, a força das ruas, a superação em Juiz de Fora e a posse histórica de 1º de janeiro de 2019 ilustradas para colorir.</p>
-                </div>
-            </div>
-            <div class="bg-patriotCard p-8 rounded-2xl border border-gray-800 shadow-lg flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 bg-patriotGold/10 rounded-xl flex items-center justify-center text-patriotGold font-bold text-xl mb-6 border border-patriotGold/20">02</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Conquistas Econômicas</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">A Lei da Liberdade Econômica, a chegada das águas da Transposição do Rio São Francisco, os recordes do agro e a revolução do PIX detalhados marco a marco.</p>
-                </div>
-            </div>
-            <div class="bg-patriotCard p-8 rounded-2xl border border-gray-800 shadow-lg flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 bg-patriotGreen/10 rounded-xl flex items-center justify-center text-patriotGreen font-bold text-xl mb-6 border border-patriotGreen/20">03</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Valores e o Futuro 2026</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">A queda histórica nos homicídios, as motociatas, a defesa intransigente da família e a articulação no Senado Federal mirando as eleições de 2026.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 2: ORDER BUMPS EM DESTAQUE ESPECIAL -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto bg-gradient-to-br from-patriotCard via-emerald-950/20 to-patriotCard rounded-3xl border-2 border-patriotGold/40 shadow-2xl my-10">
+    <!-- SEÇÃO DO CHECKOUT / SIMULADOR INTERATIVO DE ORDER BUMP -->
+    <section id="checkout-section" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div class="text-center mb-10">
-            <span class="bg-patriotGold text-black text-xs font-black px-3 py-1 rounded uppercase tracking-wider">Bônus Exclusivos de Checkout</span>
-            <h2 class="text-2xl sm:text-3xl font-black mt-3">Potencialize Seus Argumentos com os <span class="text-patriotGold">Order Bumps</span></h2>
-            <p class="text-gray-300 text-sm mt-2">Adicione estes dois materiais complementares no momento do pagamento com apenas 1 clique:</p>
+            <span class="bg-patriotGold text-black text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                Simulador de Compra
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-black mt-3 text-white">
+                Monte seu Pedido e <span class="text-patriotGold">Economize no Combo</span>
+            </h2>
+            <p class="text-gray-400 text-sm mt-2">
+                Experimente selecionar os materiais adicionais abaixo para ver seu valor final com desconto aplicado:
+            </p>
         </div>
 
-        <div class="space-y-6">
-            <!-- Bump 1 -->
-            <div class="bg-patriotDark/80 p-6 rounded-xl border border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                    <span class="text-xs text-patriotGreen font-bold uppercase tracking-wider">Order Bump 01</span>
-                    <h4 class="text-lg font-bold text-white">Manual de Bolso: Fatos Contra Narrativas</h4>
-                    <p class="text-xs text-gray-400 mt-1">20 dados oficiais e auditados para você calar qualquer esquerdista em debates de família ou internet.</p>
+        <!-- BOX SIMULADOR DE CHECKOUT -->
+        <div class="bg-patriotCard rounded-3xl border-2 border-patriotGold/50 shadow-2xl p-6 sm:p-10 relative overflow-hidden">
+            <!-- Decorative badge -->
+            <div class="absolute top-0 right-0 bg-gradient-to-l from-patriotGreen/20 to-transparent p-6 pointer-events-none"></div>
+
+            <div class="space-y-4 mb-8">
+                
+                <!-- Item Principal (Fixo / Marcado) -->
+                <div class="bg-patriotDark/90 p-4 sm:p-5 rounded-2xl border-2 border-patriotGold flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-6 h-6 rounded-lg bg-patriotGold text-black font-black flex items-center justify-center text-xs shrink-0">
+                            ✓
+                        </div>
+                        <img src="assets/livrocolorir.png" alt="Livro para Colorir" class="w-12 h-16 object-cover rounded shadow border border-gray-700 hidden sm:block">
+                        <div>
+                            <span class="text-[10px] font-black uppercase tracking-wider bg-patriotGold/20 text-patriotGold px-2 py-0.5 rounded">
+                                Item Obrigatório / Principal
+                            </span>
+                            <h4 class="font-bold text-white text-sm sm:text-base mt-1">Livro para Colorir: Um Brasil de Todos</h4>
+                            <p class="text-xs text-gray-400">30 ilustrações históricas em PDF de alta qualidade para imprimir e colorir.</p>
+                        </div>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <span class="text-xs text-gray-500 line-through block">R$ 67,00</span>
+                        <span class="text-lg sm:text-xl font-black text-patriotGold">R$ 19,90</span>
+                    </div>
                 </div>
-                <div class="text-right whitespace-nowrap">
-                    <span class="text-xs text-gray-400 line-through">R$ 37,00</span>
-                    <span class="text-patriotGold font-black text-lg block">+ Apenas R$ 12,90</span>
+
+                <!-- Order Bump 1 Checkbox Interativo -->
+                <label class="cursor-pointer bg-patriotDark/60 hover:bg-patriotDark/90 p-4 sm:p-5 rounded-2xl border-2 border-dashed border-emerald-500/50 hover:border-patriotGreen flex items-center justify-between gap-4 transition-all duration-200 block group" id="label-bump-1">
+                    <div class="flex items-center gap-3.5">
+                        <input type="checkbox" id="bump-1-checkbox" onchange="calculateTotal()" class="w-6 h-6 rounded-md accent-patriotGreen text-patriotGreen bg-gray-900 border-gray-600 focus:ring-patriotGreen cursor-pointer shrink-0">
+                        <img src="assets/olegadobolsonaro.png" alt="O Legado em Números" class="w-12 h-16 object-cover rounded shadow border border-gray-700 hidden sm:block">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-950 text-patriotGreenLight px-2 py-0.5 rounded border border-emerald-500/40">
+                                    Adicionar Order Bump 01
+                                </span>
+                                <span class="text-[11px] font-bold text-patriotGold animate-pulse">🔥 Oferta Relâmpago</span>
+                            </div>
+                            <h4 class="font-bold text-white text-sm sm:text-base mt-1 group-hover:text-patriotGreen transition-colors">
+                                Sim! Adicionar "O Legado em Números: 15 Feitos Históricos"
+                            </h4>
+                            <p class="text-xs text-gray-400">Guia oficial com 15 dados consolidados da gestão 2019-2022 para debates.</p>
+                        </div>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <span class="text-xs text-gray-500 line-through block">R$ 37,00</span>
+                        <span class="text-base sm:text-lg font-black text-patriotGreen">+ R$ 12,90</span>
+                    </div>
+                </label>
+
+                <!-- Order Bump 2 Checkbox Interativo -->
+                <label class="cursor-pointer bg-patriotDark/60 hover:bg-patriotDark/90 p-4 sm:p-5 rounded-2xl border-2 border-dashed border-blue-500/50 hover:border-blue-400 flex items-center justify-between gap-4 transition-all duration-200 block group" id="label-bump-2">
+                    <div class="flex items-center gap-3.5">
+                        <input type="checkbox" id="bump-2-checkbox" onchange="calculateTotal()" class="w-6 h-6 rounded-md accent-blue-500 text-blue-500 bg-gray-900 border-gray-600 focus:ring-blue-500 cursor-pointer shrink-0">
+                        <img src="assets/ofuturodadireita.png" alt="O Futuro da Direita" class="w-12 h-16 object-cover rounded shadow border border-gray-700 hidden sm:block">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-black uppercase tracking-wider bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-500/40">
+                                    Adicionar Order Bump 02
+                                </span>
+                                <span class="text-[11px] font-bold text-blue-300">🏛️ Estratégia 2026</span>
+                            </div>
+                            <h4 class="font-bold text-white text-sm sm:text-base mt-1 group-hover:text-blue-400 transition-colors">
+                                Sim! Adicionar "O Futuro da Direita em 2026"
+                            </h4>
+                            <p class="text-xs text-gray-400">Caderno programático analítico com as diretrizes da oposição para o país.</p>
+                        </div>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <span class="text-xs text-gray-500 line-through block">R$ 47,00</span>
+                        <span class="text-base sm:text-lg font-black text-blue-400">+ R$ 14,90</span>
+                    </div>
+                </label>
+
+            </div>
+
+            <!-- Resumo e Cálculo em Tempo Real -->
+            <div class="bg-patriotDark p-6 rounded-2xl border border-gray-800 mb-8">
+                <div class="flex justify-between items-center text-sm text-gray-400 mb-2">
+                    <span>Preço Original sem Desconto:</span>
+                    <span id="original-price" class="line-through">R$ 67,00</span>
+                </div>
+                <div class="flex justify-between items-center text-sm text-patriotGreenLight mb-2">
+                    <span>Sua Economia Total:</span>
+                    <span id="savings-amount" class="font-bold">R$ 47,10 (70% de desconto)</span>
+                </div>
+                <div class="border-t border-gray-800 my-3 pt-3 flex justify-between items-baseline">
+                    <div>
+                        <span class="text-base sm:text-lg font-extrabold text-white block">Valor Final do Pedido:</span>
+                        <span class="text-xs text-gray-400">Pagamento único via PIX ou Cartão</span>
+                    </div>
+                    <div class="text-right">
+                        <span id="total-display" class="text-3xl sm:text-4xl font-black text-patriotGold">R$ 19,90</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Bump 2 -->
-            <div class="bg-patriotDark/80 p-6 rounded-xl border border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                    <span class="text-xs text-patriotGold font-bold uppercase tracking-wider">Order Bump 02</span>
-                    <h4 class="text-lg font-bold text-white">O Futuro da Direita: Propostas & Legado 2026</h4>
-                    <p class="text-xs text-gray-400 mt-1">Guia estratégico completo com as pautas e rumos da oposição para as eleições atuais.</p>
-                </div>
-                <div class="text-right whitespace-nowrap">
-                    <span class="text-xs text-gray-400 line-through">R$ 47,00</span>
-                    <span class="text-patriotGold font-black text-lg block">+ Apenas R$ 14,90</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO 3: ANCORAGEM DE PREÇO E OFERTA -->
-    <section class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto text-center">
-        <div class="bg-patriotCard p-8 sm:p-12 rounded-3xl border border-gray-800 shadow-2xl relative">
-            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-patriotGreen text-white text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-widest shadow-md">
-                Oferta Especial de Lançamento
-            </div>
-            
-            <h3 class="text-2xl sm:text-3xl font-extrabold mb-6 mt-2">Almanaque Patriota (Edição Completa)</h3>
-            
-            <div class="flex items-center justify-center gap-4 mb-8">
-                <span class="text-gray-500 text-xl line-through">De R$ 97,00</span>
-                <span class="text-4xl sm:text-5xl font-black text-patriotGold">Por Apenas R$ 19,90</span>
-            </div>
-
-            <ul class="text-left text-sm text-gray-300 space-y-3 mb-8 max-w-md mx-auto">
-                <li class="flex items-center gap-2">✅ Livro de Colorir de 30 Marcos Históricos em PDF</li>
-                <li class="flex items-center gap-2">✅ Formato Otimizado para Impressão A4 ou Tablet</li>
-                <li class="flex items-center gap-2">✅ Acesso Vitalício na Área de Membros Kiwify</li>
-                <li class="flex items-center gap-2">✅ Garantia Incondicional de 7 Dias</li>
-            </ul>
-
-            <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" class="block w-full bg-patriotGold hover:bg-patriotGoldHover text-black font-black text-lg py-4 rounded-xl shadow-xl shadow-patriotGold/20 transition transform hover:-translate-y-0.5 text-center mb-4">
-                COMPRAR AGORA COM DESCONTO
+            <!-- Botão de Ação Dinâmico -->
+            <a href="https://pay.kiwify.com.br/SEU_LINK_AQUI" id="checkout-cta-button" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-lg py-5 px-6 rounded-2xl shadow-xl shadow-patriotGold/30 transition-all transform hover:-translate-y-1 text-center block uppercase tracking-wider mb-4">
+                GARANTIR MEU PEDIDO AGORA (R$ 19,90)
             </a>
-            <p class="text-xs text-gray-400">🔒 Ambiente 100% seguro processado pela Kiwify.</p>
+
+            <!-- Informações de Segurança e Garantia -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400">
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-patriotGreen" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Checkout Seguro Kiwify
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-patriotGold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    7 Dias de Garantia Blindada
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    Envio Imediato por E-mail
+                </span>
+            </div>
+
         </div>
     </section>
 
-    <!-- SEÇÃO 4: FAQ / PERGUNTAS FREQUENTES -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-gray-800">
-        <h3 class="text-2xl sm:text-3xl font-bold text-center mb-12">Perguntas Frequentes</h3>
-        <div class="space-y-6">
-            <div class="bg-patriotCard p-6 rounded-xl border border-gray-800">
-                <h4 class="font-bold text-white mb-2">Como recebo o acesso ao material?</h4>
-                <p class="text-sm text-gray-400">Assim que o pagamento for aprovado (via Pix ou cartão), você receberá automaticamente os arquivos em PDF no seu e-mail cadastrado e também o acesso à nossa área de membros exclusiva.</p>
+    <!-- SEÇÃO DE GARANTIA INCONDICIONAL -->
+    <section class="py-12 px-4 max-w-4xl mx-auto">
+        <div class="bg-patriotCard/90 rounded-3xl p-8 sm:p-10 border border-gray-800 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-patriotGreen/20 to-patriotGold/20 border-2 border-patriotGold/40 flex items-center justify-center text-4xl shrink-0 shadow-lg">
+                🛡️
             </div>
-            <div class="bg-patriotCard p-6 rounded-xl border border-gray-800">
-                <h4 class="font-bold text-white mb-2">Posso imprimir os desenhos para colorir?</h4>
-                <p class="text-sm text-gray-400">Sim! Todos os arquivos foram diagramados em alta resolução e formato padrão, perfeitos para você imprimir em qualquer impressora caseira em folhas A4 ou levar a uma gráfica.</p>
+            <div>
+                <h3 class="text-xl sm:text-2xl font-black text-white mb-2">Garantia Blindada de 7 Dias — Risco Zero!</h3>
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    Você pode acessar todos os materiais digitais, ler os e-books, imprimir os desenhos de colorir e testar os conteúdos. Se por qualquer motivo você não ficar 100% satisfeito dentro de 7 dias, basta nos enviar um e-mail ou solicitar na Kiwify que devolveremos cada centavo pago. Sem perguntas e sem complicações.
+                </p>
             </div>
-            <div class="bg-patriotCard p-6 rounded-xl border border-gray-800">
-                <h4 class="font-bold text-white mb-2">E se eu não gostar do conteúdo?</h4>
-                <p class="text-sm text-gray-400">Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, basta solicitar o reembolso na Kiwify e devolveremos 100% do seu dinheiro sem burocracia.</p>
-            </div>
+        </div>
+    </section>
+
+    <!-- FAQ / PERGUNTAS FREQUENTES INTERATIVO -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-gray-800/80">
+        <div class="text-center mb-12">
+            <span class="bg-gray-800 text-gray-300 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">Tire Suas Dúvidas</span>
+            <h3 class="text-2xl sm:text-3xl font-black text-white mt-3">Perguntas Frequentes</h3>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
+                    <span>Como e quando recebo o acesso aos livros digitais?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+                </summary>
+                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                    O acesso é 100% imediato e automatizado! Assim que o seu pagamento for confirmado (no PIX ou Cartão de Crédito), você recebe um e-mail com os links para download dos arquivos em PDF de alta qualidade e o acesso à área de membros exclusiva.
+                </p>
+            </details>
+
+            <!-- FAQ 2 -->
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
+                    <span>Como adiciono os outros 2 livros por R$ 12,90 e R$ 14,90?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+                </summary>
+                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                    Ao clicar em comprar, você será levado ao checkout oficial. Lá você verá o Livro de Colorir selecionado e, logo abaixo, duas caixinhas chamadas <em>Order Bump</em>: basta marcar as caixinhas para adicionar o eBook <strong>O Legado em Números (R$ 12,90)</strong> e o eBook <strong>O Futuro da Direita (R$ 14,90)</strong> ao seu carrinho.
+                </p>
+            </details>
+
+            <!-- FAQ 3 -->
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
+                    <span>Posso imprimir as folhas de colorir mais de uma vez?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+                </summary>
+                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                    Sim! O arquivo PDF é seu para sempre. Você pode imprimir as 30 ilustrações em qualquer impressora caseira formato A4 quantas vezes quiser para seus filhos, sobrinhos, netos ou alunos.
+                </p>
+            </details>
+
+            <!-- FAQ 4 -->
+            <details class="group bg-patriotCard rounded-2xl border border-gray-800 p-5 transition-colors open:border-patriotGold/40">
+                <summary class="flex items-center justify-between font-bold text-white cursor-pointer list-none text-base">
+                    <span>Os dados do eBook "15 Feitos Históricos" são verídicos?</span>
+                    <span class="transition group-open:rotate-180 text-patriotGold font-black ml-4">▼</span>
+                </summary>
+                <p class="text-sm text-gray-400 mt-4 leading-relaxed border-t border-gray-800 pt-3">
+                    Sim, absolutamente todos os números foram extraídos de balanços federais, diários oficiais, leis aprovadas no Diário Oficial da União e estatísticas públicas dos ministérios, servindo como uma fonte idônea para rebater narrativas de desinformação.
+                </p>
+            </details>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-patriotCard py-8 text-center text-xs text-gray-500 border-t border-gray-800 px-4">
-        <p class="mb-2">© 2026 Almanaque Patriota. Todos os direitos reservados.</p>
-        <p>Este site não possui vínculo oficial com partidos políticos, sendo um produto digital informativo, cultural e recreativo voltado ao público conservador.</p>
+    <footer class="bg-patriotCard py-12 text-center text-xs text-gray-500 border-t border-gray-800 px-4">
+        <div class="max-w-4xl mx-auto space-y-3">
+            <p class="text-sm font-bold text-gray-400">© 2026 Almanaque & Coleção Patriota. Todos os direitos reservados.</p>
+            <p class="leading-relaxed">
+                Este produto digital tem caráter educativo, cultural e informativo voltado ao público conservador brasileiro. Não possuímos vínculo partidário governamental direto; nossa missão é a difusão de marcos históricos e valores cívicos nacionais.
+            </p>
+            <div class="pt-4 flex justify-center gap-6 text-gray-400 font-medium">
+                <a href="#checkout-section" class="hover:text-patriotGold transition">Comprar Agora</a>
+                <a href="#produtos-detalhes" class="hover:text-patriotGold transition">Ver Produtos</a>
+                <a href="#" class="hover:text-patriotGold transition">Termos de Uso</a>
+                <a href="#" class="hover:text-patriotGold transition">Políticas de Privacidade</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- MODAL DE VISUALIZAÇÃO / ZOOM DAS CAPAS -->
+    <div id="cover-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all" onclick="closeModalOnBackdrop(event)">
+        <div class="bg-patriotCard border-2 border-gray-700 rounded-3xl max-w-lg w-full p-6 relative shadow-2xl flex flex-col items-center" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg transition">
+                ✕
+            </button>
+            
+            <div class="w-full max-w-[280px] sm:max-w-[320px] rounded-xl overflow-hidden shadow-2xl border border-gray-600 bg-white my-4 relative book-container">
+                <div class="book-spine-effect"></div>
+                <img id="modal-image" src="" alt="Capa Ampliada" class="w-full h-auto block">
+            </div>
+
+            <h3 id="modal-title" class="text-lg font-bold text-white text-center mt-2">Título do Livro</h3>
+            <p id="modal-desc" class="text-xs text-gray-400 text-center mt-1 mb-4">Descrição breve do livro.</p>
+            
+            <div class="flex items-center justify-between w-full border-t border-gray-800 pt-4 mt-2">
+                <span id="modal-price" class="text-xl font-black text-patriotGold">R$ 19,90</span>
+                <a href="#checkout-section" onclick="closeModal()" class="bg-patriotGold hover:bg-patriotGoldHover text-black font-extrabold text-xs uppercase px-5 py-2.5 rounded-xl transition shadow">
+                    Ir para o Pedido
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DE INTERATIVIDADE E CÁLCULO DE CHECKOUT -->
+    <script>
+        // Dados dos livros para o Modal
+        const booksData = {
+            livrocolorir: {
+                title: "Livro para Colorir: Um Brasil de Todos",
+                desc: "30 ilustrações históricas em traço nítido para imprimir ou colorir digitalmente em família.",
+                price: "Produto Principal: R$ 19,90",
+                img: "assets/livrocolorir.png"
+            },
+            olegado: {
+                title: "O Legado em Números: 15 Maiores Feitos Históricos (2019-2022)",
+                desc: "Guia visual de bolso com marcos legais e dados oficiais auditados para fundamentar debates.",
+                price: "Order Bump: + R$ 12,90",
+                img: "assets/olegadobolsonaro.png"
+            },
+            ofuturo: {
+                title: "O Futuro da Direita em 2026: Continuidade e Força",
+                desc: "Caderno programático e analítico sobre os eixos estratégicos para o desenvolvimento e soberania.",
+                price: "Order Bump: + R$ 14,90",
+                img: "assets/ofuturodadireita.png"
+            }
+        };
+
+        function openModal(bookKey) {
+            const data = booksData[bookKey];
+            if (!data) return;
+
+            document.getElementById('modal-image').src = data.img;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-desc').textContent = data.desc;
+            document.getElementById('modal-price').textContent = data.price;
+            
+            const modal = document.getElementById('cover-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('cover-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnBackdrop(e) {
+            closeModal();
+        }
+
+        // Fechar com a tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Cálculo dinâmico do simulador de checkout
+        function calculateTotal() {
+            const basePrice = 19.90;
+            const bump1Price = 12.90;
+            const bump2Price = 14.90;
+
+            let originalTotal = 67.00; // De R$ 67
+            let currentTotal = basePrice;
+            let totalSavings = 67.00 - basePrice;
+
+            const bump1Checked = document.getElementById('bump-1-checkbox').checked;
+            const bump2Checked = document.getElementById('bump-2-checkbox').checked;
+
+            const labelBump1 = document.getElementById('label-bump-1');
+            const labelBump2 = document.getElementById('label-bump-2');
+
+            // Highlight estilo ao selecionar
+            if (bump1Checked) {
+                currentTotal += bump1Price;
+                originalTotal += 37.00;
+                labelBump1.classList.add('bg-emerald-950/40', 'border-patriotGreen', 'border-solid');
+                labelBump1.classList.remove('border-dashed');
+            } else {
+                labelBump1.classList.remove('bg-emerald-950/40', 'border-patriotGreen', 'border-solid');
+                labelBump1.classList.add('border-dashed');
+            }
+
+            if (bump2Checked) {
+                currentTotal += bump2Price;
+                originalTotal += 47.00;
+                labelBump2.classList.add('bg-blue-950/40', 'border-blue-400', 'border-solid');
+                labelBump2.classList.remove('border-dashed');
+            } else {
+                labelBump2.classList.remove('bg-blue-950/40', 'border-blue-400', 'border-solid');
+                labelBump2.classList.add('border-dashed');
+            }
+
+            totalSavings = originalTotal - currentTotal;
+
+            // Atualizar valores na tela
+            document.getElementById('total-display').textContent = `R$ ${currentTotal.toFixed(2).replace('.', ',')}`;
+            document.getElementById('original-price').textContent = `R$ ${originalTotal.toFixed(2).replace('.', ',')}`;
+            document.getElementById('savings-amount').textContent = `R$ ${totalSavings.toFixed(2).replace('.', ',')} economizados!`;
+
+            // Atualizar texto do botão CTA
+            const ctaBtn = document.getElementById('checkout-cta-button');
+            if (bump1Checked && bump2Checked) {
+                ctaBtn.textContent = `QUERO O COMBO COMPLETO COM OS 3 EBOOKS (R$ ${currentTotal.toFixed(2).replace('.', ',')})`;
+            } else if (bump1Checked || bump2Checked) {
+                ctaBtn.textContent = `QUERO MEU PEDIDO COM O BÔNUS (R$ ${currentTotal.toFixed(2).replace('.', ',')})`;
+            } else {
+                ctaBtn.textContent = `GARANTIR MEU PEDIDO AGORA (R$ ${currentTotal.toFixed(2).replace('.', ',')})`;
+            }
+        }
+    </script>
 </body>
 </html>
