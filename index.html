@@ -90,6 +90,21 @@
             animation: subtlePulse 4s ease-in-out infinite;
         }
 
+        /* Subtle watermark overlay across image cards */
+        .watermark-grid-bg {
+            background-image: radial-gradient(rgba(245, 158, 11, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Proteção Anti-Cópia de Imagens */
+        .protect-preview {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
         /* Word break helper */
         .break-words-safe {
             overflow-wrap: break-word;
@@ -185,9 +200,13 @@
                             <span class="text-base">→</span>
                         </a>
                     </div>
-                    <div class="text-center lg:text-left mt-3">
+                    <div class="text-center lg:text-left mt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4">
                         <a href="#como-pt-quebrou" class="text-xs text-gray-400 hover:text-white transition inline-flex items-center gap-1.5 underline decoration-gray-700">
                             <span>Veja o dossiê comparativo abaixo</span>
+                            <span>↓</span>
+                        </a>
+                        <a href="#espreitadinha-conteudo" class="text-xs text-patriotGold hover:text-patriotGoldLight transition inline-flex items-center gap-1.5 font-bold">
+                            <span>👀 Espiar ilustrações (Flávio com Faixa e mais)</span>
                             <span>↓</span>
                         </a>
                     </div>
@@ -259,8 +278,11 @@
                         <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-sm sm:text-base py-3.5 px-4 rounded-xl shadow-xl shadow-patriotGold/30 text-center block uppercase tracking-wide">
                             GARANTIR POR APENAS R$ 19,90
                         </a>
-                        <div class="text-center mt-2.5">
-                            <a href="https://kiwify.app/uUn3EaN" target="_blank" class="text-[11px] text-patriotGold font-bold hover:underline transition">
+                        <div class="text-center mt-2.5 space-y-1">
+                            <a href="#espreitadinha-conteudo" class="block text-[11px] text-amber-400 font-extrabold hover:underline transition">
+                                👀 Ver Amostra das Páginas Polêmicas (Flávio com Faixa) ↓
+                            </a>
+                            <a href="https://kiwify.app/uUn3EaN" target="_blank" class="block text-[10px] text-gray-400 hover:text-patriotGold transition">
                                 🔗 Conhecer a Página Oficial Kiwify →
                             </a>
                         </div>
@@ -772,6 +794,644 @@
         </div>
     </main>
 
+    <!-- ========================================================================= -->
+    <!-- NOVA SEÇÃO: ESPREITADINHA EXCLUSIVA DO CONTEÚDO (CARROSSEL COM MARCA D'ÁGUA) -->
+    <!-- ========================================================================= -->
+    <section id="espreitadinha-conteudo" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-b border-gray-800/80 bg-gradient-to-b from-[#080d18] via-patriotCard/40 to-[#080d18] relative">
+        <div class="text-center mb-10 max-w-3xl mx-auto">
+            <span class="bg-red-950 text-red-400 border border-red-500/50 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-2 shadow-sm animate-pulse">
+                <span>🔥</span> CONTEÚDO SEM CENSURA • VEJA O QUE VOCÊ ESTÁ COMPRANDO
+            </span>
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black mt-4 mb-4 tracking-tight break-words-safe text-white">
+                As Ilustrações Mais Polêmicas <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-patriotGold to-patriotGreen">Que Incomodam a Esquerda</span>
+            </h2>
+            <p class="text-gray-300 text-xs sm:text-sm sm:text-base leading-relaxed break-words-safe">
+                Transparência total para o comprador patriota: confira abaixo uma prévia de <strong>10 das mais de 30 ilustrações históricas</strong> inclusas no seu pacote. Protegemos as amostras nesta página com marca d'água contra pirataria — <strong>ao concluir a compra, você recebe o arquivo original completo em PDF de altíssima definição (300 DPI, formato A4) 100% limpo, sem marcas e pronto para impressão ilimitada!</strong>
+            </p>
+        </div>
+
+        <!-- BARRA DE CONTROLE E NAVEGAÇÃO DO CARROSSEL DE PRÉVIA -->
+        <div class="flex items-center justify-between mb-4 px-2">
+            <div class="flex items-center gap-2 text-xs sm:text-sm text-patriotGold font-bold">
+                <span class="animate-bounce">👉</span>
+                <span class="hidden sm:inline">Deslize para ver as ilustrações mais polêmicas:</span>
+                <span class="sm:hidden">Passe para o lado:</span>
+                <span id="preview-counter" class="bg-patriotDark border border-patriotGold/40 text-patriotGold text-[11px] px-2.5 py-0.5 rounded-full font-black shadow-inner">1 de 10</span>
+            </div>
+            
+            <!-- Botões de Navegação (Desktop & Mobile) -->
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="scrollPreviewCarousel(-1)" class="w-10 h-10 rounded-full bg-patriotCard border border-patriotGold/50 text-patriotGold hover:bg-patriotGold hover:text-black flex items-center justify-center font-black transition active:scale-95 shadow-lg hover:shadow-patriotGold/30" aria-label="Amostra anterior">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" onclick="scrollPreviewCarousel(1)" class="w-10 h-10 rounded-full bg-patriotCard border border-patriotGold/50 text-patriotGold hover:bg-patriotGold hover:text-black flex items-center justify-center font-black transition active:scale-95 shadow-lg hover:shadow-patriotGold/30" aria-label="Próxima amostra">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- CONTAINER DO CARROSSEL DE AMOSTRAS POLÊMICAS -->
+        <div id="preview-carousel" class="flex gap-5 lg:gap-6 items-stretch overflow-x-auto snap-x snap-mandatory scroll-smooth pb-5 pt-2 -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 no-scrollbar cursor-grab select-none">
+            
+            <!-- CARD 1: Flávio Bolsonaro com Faixa de Presidente -->
+            <div id="preview-card-0" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-red-500/70 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-red-950 text-red-400 border border-red-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider animate-pulse truncate">
+                            🔥 A MAIS POLÊMICA DE 2026
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_flavio_faixa')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_flavio_faixa_presidente.jpg" alt="Flávio Bolsonaro com a Faixa Presidencial" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Palácio do Planalto 2026</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            Flávio Bolsonaro com a Faixa de Presidente
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        O cenário de 2026 que tira o sono da esquerda: Flávio Bolsonaro assumindo a Presidência no Palácio do Planalto, simbolizando a reconquista da liberdade e da soberania nacional.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 2: Flávio Passando a Faixa para Jair Bolsonaro -->
+            <div id="preview-card-1" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-emerald-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            🇧🇷 UNIÃO CONSERVADORA
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_flavio_passando')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_flavio_passando_faixa.jpg" alt="Flávio Passando a Faixa para Jair Bolsonaro" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Continuidade e Lealdade</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            Flávio Passando a Faixa para Jair Bolsonaro
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        O momento histórico da transmissão de liderança patriota entre pai e filho, blindando o legado de coragem e unindo a oposição contra o aparelhamento de Brasília.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 3: Prendendo o Animal -->
+            <div id="preview-card-2" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-red-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-red-950 text-red-400 border border-red-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            ⛓️ POLÊMICA HISTÓRICA
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_prendendo_animal')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_prendendo_o_animal.jpg" alt="Prendendo o Animal: A Queda do Esquema" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Fim da Impunidade</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            Prendendo o Animal: A Queda do Esquema
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        A imagem que a militância petista tenta varrer para debaixo do tapete: a justiça sendo feita e o líder do esquema sendo algemado perante a indignação de 200 milhões de cidadãos.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 4: A Urna Que Sorri -->
+            <div id="preview-card-3" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-amber-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-amber-950 text-amber-400 border border-amber-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            🗳️ SÁTIRA ELEITORAL
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_urna_sorri')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_urna_que_sorri.jpg" alt="A Urna Que Sorri" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Transparência Já</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            A Urna Que Sorri: A Sátira do Sistema
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        Uma charge contundente e cheia de ironia sobre o sistema eleitoral brasileiro e as dúvidas que todo patriota carrega no peito. Desenho que desafia o establishment.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 5: Vote 22 -->
+            <div id="preview-card-4" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-patriotGold/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-patriotGold/20 text-patriotGold border border-patriotGold/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            🦅 O NÚMERO DA LIBERDADE
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_vote_22')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_vote_22.jpg" alt="Vote 22: O Brasil Verde e Amarelo" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Deus, Pátria e Família</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            Vote 22: O Brasil Verde e Amarelo
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        O símbolo cívico que uniu mais de 58 milhões de votos patriotas em todos os cantos da nação, gravado no coração dos conservadores como a marca da resistência.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 6: Flávio 22 no Senado -->
+            <div id="preview-card-5" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-blue-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-blue-950 text-blue-400 border border-blue-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            🏛️ TRINCHEIRA NO SENADO
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_flavio_22')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_flavio_22.jpg" alt="Flávio 22: A Barreira Contra a Tirania" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Liderança Combativa</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            Flávio 22: A Barreira Contra a Tirania
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        A coragem de Flávio Bolsonaro enfrentando a gastança desenfreada do governo Lula e articulando o contra-ataque democrático da direita para 2026.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 7: Passeata Verde e Amarela -->
+            <div id="preview-card-6" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-emerald-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            👥 O GIGANTE ACORDOU
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_passeata')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_passeata.jpg" alt="O Mar Verde e Amarelo: Povo nas Ruas" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Povo Soberano</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            O Mar Verde e Amarelo: Povo nas Ruas
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        Milhões de famílias ordeiras vestindo a camisa da seleção e erguendo a bandeira nacional contra o desmando e a censura nos maiores atos populares da história do país.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 8: O Hino Nacional -->
+            <div id="preview-card-7" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-emerald-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            🛡️ EDUCAÇÃO E CIVISMO
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_hino')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_o_hino.jpg" alt="O Hino Nacional no Peito das Crianças" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Blindagem Moral</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            O Hino Nacional no Peito das Crianças
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        Resgatando o amor à Pátria e o respeito à bandeira nacional: ensinando aos pequenos o verdadeiro civismo e a fé que as cartilhas ideológicas tentam destruir.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 9: Lei da Liberdade Econômica -->
+            <div id="preview-card-8" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-emerald-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            📈 PROSPERIDADE REAL
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_lei_liberdade')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_lei_liberdade_economia.jpg" alt="Lei da Liberdade Econômica" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Livre Mercado</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            Lei da Liberdade Econômica
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        O marco que libertou quem produz das amarras estatais, permitiu abrir empresas sem alvará abusivo e gerou recordes de empregos com dignidade e autonomia.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARD 10: Redução Histórica de Impostos -->
+            <div id="preview-card-9" class="preview-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-center bg-gradient-to-b from-patriotCard via-patriotCard to-[#0c1322] rounded-3xl p-5 sm:p-6 border-2 border-emerald-500/50 hover:border-patriotGold shadow-xl hover:shadow-2xl hover:shadow-patriotGold/20 transition-all duration-300 flex flex-col justify-between group min-w-0">
+                <div class="min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="bg-emerald-950 text-emerald-400 border border-emerald-500/50 text-[10px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider truncate">
+                            💰 DINHEIRO NO BOLSO
+                        </span>
+                        <span class="text-[10px] text-gray-400 font-bold shrink-0 flex items-center gap-1">
+                            🔒 Amostra Protegida
+                        </span>
+                    </div>
+
+                    <div class="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-black/80 border border-gray-800 flex items-center justify-center p-2 group/img cursor-pointer" onclick="openModal('preview_reducao_impostos')">
+                        <div class="watermark-grid-bg absolute inset-0 pointer-events-none opacity-40"></div>
+                        <img src="assets/preview/preview_reducao_impostos.jpg" alt="A Maior Redução de Impostos da História" class="max-h-full max-w-full object-contain mx-auto rounded-lg select-none protect-preview transition-transform duration-300 group-hover/img:scale-105" loading="lazy" draggable="false" oncontextmenu="return false;">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-black/85 text-patriotGold text-xs font-bold px-3 py-1.5 rounded-full border border-patriotGold/50 shadow flex items-center gap-1.5">
+                                🔍 Inspecionar Amostra
+                            </span>
+                        </div>
+                        
+                        <div class="absolute top-2 left-2 bg-red-600/90 text-white text-[9px] font-black px-2 py-0.5 rounded shadow uppercase tracking-wide pointer-events-none">
+                            🔒 Cópia Proibida
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black/85 text-patriotGold text-[9px] font-bold px-2 py-0.5 rounded border border-patriotGold/30 pointer-events-none">
+                            HD 300 DPI na Compra
+                        </div>
+                    </div>
+
+                    <div class="mt-4 mb-2">
+                        <span class="text-[11px] font-black text-patriotGold uppercase tracking-wider block mb-1">Bolsonaro Economia</span>
+                        <h4 class="text-base sm:text-lg font-black text-white leading-snug break-words-safe group-hover:text-patriotGold transition-colors">
+                            A Maior Redução de Impostos da História
+                        </h4>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-4 font-medium break-words-safe">
+                        A prova documentada de que é possível arrecadar sem extorquir o cidadão: ICMS reduzido nos combustíveis, IPI cortado e inflação abaixo de EUA e Europa.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-gray-800/80">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2.5">
+                        <span class="flex items-center gap-1"><span class="text-patriotGreen font-bold">✓</span> Incluso no Combo</span>
+                        <span class="text-patriotGold font-bold">R$ 19,90</span>
+                    </div>
+                    <a href="https://pay.kiwify.com.br/662qM40" class="w-full bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs py-3 px-3 rounded-xl transition text-center block uppercase tracking-wide shadow-lg shadow-patriotGold/20 transform hover:-translate-y-0.5">
+                        QUERO ESSA ILUSTRAÇÃO (R$ 19,90)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Indicadores de Pontos (Pagination Dots) da Prévia -->
+        <div class="flex items-center justify-center gap-2 mt-5" id="preview-dots">
+            <button type="button" onclick="goToPreviewSlide(0)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-8 bg-patriotGold" aria-label="Amostra 1"></button>
+            <button type="button" onclick="goToPreviewSlide(1)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 2"></button>
+            <button type="button" onclick="goToPreviewSlide(2)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 3"></button>
+            <button type="button" onclick="goToPreviewSlide(3)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 4"></button>
+            <button type="button" onclick="goToPreviewSlide(4)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 5"></button>
+            <button type="button" onclick="goToPreviewSlide(5)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 6"></button>
+            <button type="button" onclick="goToPreviewSlide(6)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 7"></button>
+            <button type="button" onclick="goToPreviewSlide(7)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 8"></button>
+            <button type="button" onclick="goToPreviewSlide(8)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 9"></button>
+            <button type="button" onclick="goToPreviewSlide(9)" class="preview-dot h-2.5 rounded-full transition-all duration-300 w-2.5 bg-gray-700" aria-label="Amostra 10"></button>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SUPER BANNER DE ALTO CTA: DESBLOQUEIE O ARQUIVO COMPLETO  -->
+        <!-- ========================================================= -->
+        <div class="mt-12 bg-gradient-to-r from-[#172236] via-[#101b2e] to-[#172236] rounded-3xl p-6 sm:p-10 border-2 border-patriotGold shadow-2xl shadow-patriotGold/20 relative overflow-hidden text-center">
+            <div class="absolute -top-24 -right-24 w-60 h-60 bg-patriotGold/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-60 h-60 bg-patriotGreen/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-patriotGold to-amber-500 text-black font-black text-xs uppercase px-4 py-1.5 rounded-full mb-4 shadow tracking-wider">
+                ⚡ ACESSO IMEDIATO APÓS O PAGAMENTO
+            </div>
+
+            <h3 class="text-xl sm:text-3xl lg:text-4xl font-black text-white mb-3 break-words-safe">
+                Não Compre no Escuro: Leve o <span class="text-transparent bg-clip-text bg-gradient-to-r from-patriotGold via-amber-300 to-patriotGoldLight">Almanaque Completo Sem Marcas d'Água</span> em Alta Definição!
+            </h3>
+
+            <p class="text-xs sm:text-base text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed break-words-safe">
+                Você acabou de ver apenas uma pequena amostra protegida contra pirataria. O <strong>Almanaque Patriota</strong> original contém <strong>mais de 30 ilustrações históricas completas</strong> em formato digital HD (300 DPI, tamanho padrão A4), prontas para você imprimir na impressora da sua casa quantas vezes quiser por apenas <strong>R$ 19,90</strong>!
+            </p>
+
+            <!-- 4 Pilares de Confiança e Benefício Real -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mb-8 text-left text-xs">
+                <div class="bg-patriotDark/90 p-3.5 rounded-2xl border border-gray-700/80 shadow">
+                    <span class="text-patriotGreen font-black text-sm block mb-1">✅ 100% Sem Marcas</span>
+                    <span class="text-gray-400 text-[11px] leading-tight block">Traços nítidos e limpos para impressão e pintura perfeita.</span>
+                </div>
+                <div class="bg-patriotDark/90 p-3.5 rounded-2xl border border-gray-700/80 shadow">
+                    <span class="text-patriotGold font-black text-sm block mb-1">🖨️ Formato Padrão A4</span>
+                    <span class="text-gray-400 text-[11px] leading-tight block">Arquivos em PDF otimizados para qualquer impressora caseira.</span>
+                </div>
+                <div class="bg-patriotDark/90 p-3.5 rounded-2xl border border-gray-700/80 shadow">
+                    <span class="text-blue-400 font-black text-sm block mb-1">⚡ Envio Instantâneo</span>
+                    <span class="text-gray-400 text-[11px] leading-tight block">Receba o link de download no seu e-mail em até 2 minutos.</span>
+                </div>
+                <div class="bg-patriotDark/90 p-3.5 rounded-2xl border border-gray-700/80 shadow">
+                    <span class="text-emerald-400 font-black text-sm block mb-1">🛡️ 7 Dias de Garantia</span>
+                    <span class="text-gray-400 text-[11px] leading-tight block">Satisfação 100% garantida ou seu dinheiro integral de volta.</span>
+                </div>
+            </div>
+
+            <!-- Botão Gigante de Alto CTA -->
+            <a href="https://pay.kiwify.com.br/662qM40" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-patriotGold via-amber-400 to-patriotGold hover:from-patriotGoldHover hover:to-amber-500 text-black font-black text-base sm:text-xl px-8 sm:px-14 py-4 sm:py-5 rounded-2xl shadow-2xl shadow-patriotGold/40 transition-all transform hover:-translate-y-1 hover:scale-[1.02] uppercase tracking-wide">
+                <span>👉 QUERO BAIXAR MEU ALMANAQUE COMPLETO POR R$ 19,90</span>
+                <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-gray-400 font-medium">
+                <span class="flex items-center gap-1.5"><span class="text-patriotGreen">🔒</span> Pagamento 100% Seguro Kiwify</span>
+                <span class="flex items-center gap-1.5"><span class="text-patriotGold">⚡</span> Liberação Imediata no PIX</span>
+                <span class="flex items-center gap-1.5"><span class="text-blue-400">💳</span> Cartão em até 4x ou Boleto</span>
+            </div>
+        </div>
+    </section>
+
     <!-- SEÇÃO EXPLICATIVA: COMO FUNCIONAM OS ORDER BUMPS -->
     <section class="py-12 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div class="bg-gradient-to-r from-red-950/40 via-patriotCard to-emerald-950/40 rounded-3xl p-6 sm:p-10 border-2 border-patriotGold/40 shadow-2xl">
@@ -824,7 +1484,7 @@
                                 Item Obrigatório / Principal
                             </span>
                             <h4 class="font-extrabold text-white text-xs sm:text-base mt-1 break-words-safe leading-snug">Almanaque Patriota: 30 Marcos Históricos (Leitura e Colorir)</h4>
-                            <p class="text-[11px] sm:text-xs text-gray-300 break-words-safe mt-0.5">30 marcos históricos e atividades de leitura e colorir em alta qualidade para impressão em casa.</p>
+                            <p class="text-[11px] sm:text-xs text-gray-300 break-words-safe mt-0.5">Mais de 30 ilustrações históricas e atividades de leitura e colorir em alta resolução 300 DPI sem marca d'água para impressão em casa (incluindo Flávio com a faixa presidencial, prisão histórica, urnas e mais).</p>
                         </div>
                     </div>
                     <div class="text-right shrink-0">
@@ -1015,25 +1675,32 @@
         </div>
     </footer>
 
-    <!-- MODAL DE VISUALIZAÇÃO / ZOOM DAS CAPAS -->
+    <!-- MODAL DE VISUALIZAÇÃO / ZOOM DAS CAPAS E ILUSTRAÇÕES -->
     <div id="cover-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all" onclick="closeModalOnBackdrop(event)">
-        <div class="bg-patriotCard border-2 border-gray-700 rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl flex flex-col items-center min-w-0" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg transition">
+        <div id="modal-dialog" class="bg-patriotCard border-2 border-gray-700 rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl flex flex-col items-center min-w-0" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg transition z-20">
                 ✕
             </button>
             
-            <div class="w-full max-w-[260px] sm:max-w-[300px] rounded-xl overflow-hidden shadow-2xl border border-gray-600 bg-white my-3 sm:my-4 relative book-container">
-                <div class="book-spine-effect"></div>
-                <img id="modal-image" src="" alt="Capa Ampliada" class="w-full h-auto block">
+            <div id="modal-img-container" class="w-full max-w-[260px] sm:max-w-[300px] rounded-xl overflow-hidden shadow-2xl border border-gray-600 bg-white my-3 sm:my-4 relative book-container">
+                <div id="modal-spine" class="book-spine-effect"></div>
+                <img id="modal-image" src="" alt="Ampliação" class="w-full h-auto block max-h-[62vh] object-contain mx-auto select-none protect-preview" draggable="false" oncontextmenu="return false;">
             </div>
 
-            <h3 id="modal-title" class="text-base sm:text-lg font-bold text-white text-center mt-2 break-words-safe w-full">Título do Livro</h3>
-            <p id="modal-desc" class="text-xs text-gray-400 text-center mt-1 mb-4 break-words-safe w-full">Descrição breve do livro.</p>
+            <!-- Aviso de marca d'água exclusivo para amostras -->
+            <div id="modal-watermark-badge" class="hidden mb-2 text-center w-full">
+                <span class="bg-red-950/80 text-red-400 border border-red-500/40 text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-flex items-center gap-1.5">
+                    <span>🔒</span> Amostra protegida contra cópia • Arquivo 300 DPI sem marca liberado no checkout
+                </span>
+            </div>
+
+            <h3 id="modal-title" class="text-base sm:text-lg font-bold text-white text-center mt-1 break-words-safe w-full">Título do Livro</h3>
+            <p id="modal-desc" class="text-xs text-gray-400 text-center mt-1 mb-4 break-words-safe w-full leading-relaxed">Descrição breve do livro.</p>
             
-            <div class="flex items-center justify-between w-full border-t border-gray-800 pt-4 mt-2">
+            <div class="flex flex-col sm:flex-row items-center justify-between w-full border-t border-gray-800 pt-4 mt-2 gap-3">
                 <span id="modal-price" class="text-lg sm:text-xl font-black text-patriotGold">R$ 19,90</span>
-                <a href="https://pay.kiwify.com.br/662qM40" class="bg-patriotGold hover:bg-patriotGoldHover text-black font-extrabold text-xs uppercase px-4 sm:px-5 py-2.5 rounded-xl transition shadow">
-                    Comprar no Checkout
+                <a id="modal-cta-btn" href="https://pay.kiwify.com.br/662qM40" class="w-full sm:w-auto bg-gradient-to-r from-patriotGold to-amber-500 hover:from-patriotGoldHover hover:to-amber-600 text-black font-black text-xs uppercase px-5 py-3 rounded-xl transition shadow text-center">
+                    Garantir no Checkout (R$ 19,90)
                 </a>
             </div>
         </div>
@@ -1041,25 +1708,111 @@
 
     <!-- JAVASCRIPT DE INTERATIVIDADE E CÁLCULO DE CHECKOUT -->
     <script>
-        // Dados dos livros para o Modal
+        // Dados dos livros e ilustrações da prévia para o Modal
         const booksData = {
             livrocolorir: {
                 title: "Almanaque Patriota: 30 Marcos Históricos (Leitura e Colorir)",
-                desc: "30 marcos históricos com leitura e atividades de colorir para blindar crianças contra a doutrinação petista e ensinar civismo, fé e família.",
+                desc: "30 marcos históricos com leitura cívica e desenhos de colorir para blindar crianças contra a doutrinação petista e ensinar civismo, amor à bandeira e fé.",
                 price: "Produto Principal: R$ 19,90",
-                img: "assets/livrocolorir.png"
+                img: "assets/livrocolorir.png",
+                isBook: true,
+                btnText: "Comprar Almanaque (R$ 19,90)"
             },
             olegado: {
                 title: "Os Maiores Feitos de Jair Bolsonaro",
                 desc: "O dossiê documental que desmascara como o PT quebrou o Brasil e como Bolsonaro recuperou a economia com números oficiais auditados.",
                 price: "Order Bump: + R$ 12,90",
-                img: "assets/olegadobolsonaro.png"
+                img: "assets/olegadobolsonaro.png",
+                isBook: true,
+                btnText: "Adicionar Feitos de Bolsonaro"
             },
             ofuturo: {
                 title: "O Futuro da Direita: Flávio Bolsonaro (Estratégia 2026)",
                 desc: "A articulação no Senado para conter os abusos do PT e as diretrizes programáticas da oposição para retomar o país.",
                 price: "Order Bump: + R$ 14,90",
-                img: "assets/ofuturodadireita.png"
+                img: "assets/ofuturodadireita.png",
+                isBook: true,
+                btnText: "Adicionar Flávio Bolsonaro"
+            },
+            preview_flavio_faixa: {
+                title: "Flávio Bolsonaro com a Faixa de Presidente",
+                desc: "O cenário de 2026 que tira o sono da esquerda: Flávio Bolsonaro assumindo a Presidência da República no Palácio do Planalto, simbolizando a reconquista da liberdade e da soberania nacional. Arquivo original sem marcas liberado após o checkout.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_flavio_faixa_presidente.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_flavio_passando: {
+                title: "Flávio Passando a Faixa para Jair Bolsonaro",
+                desc: "O momento histórico da transmissão de liderança patriota entre pai e filho, blindando o legado de coragem e unindo a oposição contra o aparelhamento de Brasília.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_flavio_passando_faixa.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_prendendo_animal: {
+                title: "Prendendo o Animal: A Queda do Esquema",
+                desc: "A cena que a militância petista tenta varrer para debaixo do tapete: a justiça sendo feita e o líder do esquema sendo algemado perante a indignação popular.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_prendendo_o_animal.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_urna_sorri: {
+                title: "A Urna Que Sorri: A Sátira do Sistema",
+                desc: "Uma charge afiada e cheia de ironia sobre o sistema eleitoral brasileiro e as dúvidas que todo patriota carrega no peito. Desenho que desafia o establishment.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_urna_que_sorri.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_vote_22: {
+                title: "Vote 22: O Brasil Verde e Amarelo",
+                desc: "O símbolo cívico que uniu mais de 58 milhões de votos patriotas em todos os cantos da nação em defesa de Deus, Pátria, Família e Liberdade.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_vote_22.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_flavio_22: {
+                title: "Flávio 22: A Barreira Contra a Tirania",
+                desc: "A coragem de Flávio Bolsonaro enfrentando a gastança do governo Lula no Congresso Nacional e articulando a união democrática da direita para 2026.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_flavio_22.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_passeata: {
+                title: "O Mar Verde e Amarelo: Povo nas Ruas",
+                desc: "Milhões de famílias de bem vestindo verde e amarelo e erguendo a bandeira nacional contra a tirania em mobilizações pacíficas memoráveis.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_passeata.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_hino: {
+                title: "O Hino Nacional no Peito das Crianças",
+                desc: "Resgatando o amor à Pátria e o respeito à bandeira nacional: ensinando às crianças o verdadeiro civismo e a fé que as cartilhas ideológicas tentam destruir.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_o_hino.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_lei_liberdade: {
+                title: "Lei da Liberdade Econômica",
+                desc: "O marco histórico que libertou quem produz das amarras estatais, permitiu abrir empresas sem alvarás abusivos e impulsionou o trabalho digno.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_lei_liberdade_economia.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
+            },
+            preview_reducao_impostos: {
+                title: "A Maior Redução de Impostos da História",
+                desc: "A prova documental de que é possível arrecadar sem esfolar o povo: combustíveis com impostos federais zerados, IPI reduzido e poder de compra protegido.",
+                price: "Incluso no Almanaque: R$ 19,90",
+                img: "assets/preview/preview_reducao_impostos.jpg",
+                isBook: false,
+                btnText: "Baixar Pacote Completo (R$ 19,90)"
             }
         };
 
@@ -1067,10 +1820,40 @@
             const data = booksData[bookKey];
             if (!data) return;
 
-            document.getElementById('modal-image').src = data.img;
+            const modalImg = document.getElementById('modal-image');
+            const spine = document.getElementById('modal-spine');
+            const container = document.getElementById('modal-img-container');
+            const dialog = document.getElementById('modal-dialog');
+            const modalBadge = document.getElementById('modal-watermark-badge');
+            const modalCtaBtn = document.getElementById('modal-cta-btn');
+            
+            modalImg.src = data.img;
             document.getElementById('modal-title').textContent = data.title;
             document.getElementById('modal-desc').textContent = data.desc;
             document.getElementById('modal-price').textContent = data.price;
+            if (modalCtaBtn && data.btnText) {
+                modalCtaBtn.textContent = data.btnText;
+            }
+
+            if (data.isBook) {
+                if (spine) spine.style.display = 'block';
+                if (container) {
+                    container.className = 'w-full max-w-[260px] sm:max-w-[300px] rounded-xl overflow-hidden shadow-2xl border border-gray-600 bg-white my-3 sm:my-4 relative book-container';
+                }
+                if (dialog) {
+                    dialog.className = 'bg-patriotCard border-2 border-gray-700 rounded-3xl max-w-lg w-full p-5 sm:p-6 relative shadow-2xl flex flex-col items-center min-w-0';
+                }
+                if (modalBadge) modalBadge.classList.add('hidden');
+            } else {
+                if (spine) spine.style.display = 'none';
+                if (container) {
+                    container.className = 'w-full max-w-md sm:max-w-lg rounded-2xl overflow-hidden shadow-2xl border-2 border-patriotGold/60 bg-black/80 my-3 sm:my-4 relative flex items-center justify-center p-3';
+                }
+                if (dialog) {
+                    dialog.className = 'bg-patriotCard border-2 border-patriotGold/60 rounded-3xl max-w-2xl w-full p-5 sm:p-6 relative shadow-2xl flex flex-col items-center min-w-0';
+                }
+                if (modalBadge) modalBadge.classList.remove('hidden');
+            }
             
             const modal = document.getElementById('cover-modal');
             modal.classList.remove('hidden');
@@ -1169,7 +1952,7 @@
             }
         }
 
-        // Listener de rolagem para atualizar indicadores de pontos em tempo real
+        // Listener de rolagem dos produtos mobile
         (function initCarouselSync() {
             const carousel = document.getElementById('product-carousel');
             if (!carousel) return;
@@ -1195,6 +1978,101 @@
                     });
                 }, 50);
             }, { passive: true });
+        })();
+
+        // =========================================================================
+        // Controles e Sincronização do Carrossel de Prévia (Ilustrações Polêmicas)
+        // =========================================================================
+        function scrollPreviewCarousel(direction) {
+            const carousel = document.getElementById('preview-carousel');
+            if (!carousel) return;
+            const firstCard = carousel.querySelector('.preview-card');
+            const scrollStep = firstCard ? (firstCard.offsetWidth + 20) : 360;
+            carousel.scrollBy({ left: direction * scrollStep, behavior: 'smooth' });
+        }
+
+        function goToPreviewSlide(index) {
+            const card = document.getElementById(`preview-card-${index}`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+
+        // Sincronização dos pontos e contador em tempo real
+        (function initPreviewSync() {
+            const carousel = document.getElementById('preview-carousel');
+            if (!carousel) return;
+
+            let isScrolling;
+            carousel.addEventListener('scroll', () => {
+                clearTimeout(isScrolling);
+                isScrolling = setTimeout(() => {
+                    const cards = carousel.querySelectorAll('.preview-card');
+                    if (!cards.length) return;
+                    const scrollLeft = carousel.scrollLeft;
+                    const cardWidth = cards[0].offsetWidth + 20;
+                    const activeIndex = Math.min(cards.length - 1, Math.max(0, Math.round(scrollLeft / cardWidth)));
+                    
+                    const dots = document.querySelectorAll('#preview-dots .preview-dot');
+                    dots.forEach((dot, idx) => {
+                        if (idx === activeIndex) {
+                            dot.classList.add('w-8', 'bg-patriotGold');
+                            dot.classList.remove('w-2.5', 'bg-gray-700');
+                        } else {
+                            dot.classList.remove('w-8', 'bg-patriotGold');
+                            dot.classList.add('w-2.5', 'bg-gray-700');
+                        }
+                    });
+
+                    const counter = document.getElementById('preview-counter');
+                    if (counter) {
+                        counter.textContent = `${activeIndex + 1} de ${cards.length}`;
+                    }
+                }, 40);
+            }, { passive: true });
+        })();
+
+        // Suporte a arrastar com o mouse no Desktop (Drag-to-Scroll)
+        (function initPreviewDrag() {
+            const slider = document.getElementById('preview-carousel');
+            if (!slider) return;
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let hasDragged = false;
+
+            slider.addEventListener('mousedown', (e) => {
+                // Não intercepta cliques em botões ou links
+                if (e.target.closest('button, a')) return;
+                isDown = true;
+                hasDragged = false;
+                slider.classList.add('cursor-grabbing');
+                slider.classList.remove('cursor-grab');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+                slider.classList.add('cursor-grab');
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+                slider.classList.add('cursor-grab');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.4;
+                if (Math.abs(walk) > 5) hasDragged = true;
+                slider.scrollLeft = scrollLeft - walk;
+            });
         })();
     </script>
 </body>
